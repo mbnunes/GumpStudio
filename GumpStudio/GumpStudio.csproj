@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>GumpStudio</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+    <FileUpgradeFlags />
+    <AssemblyTitle>Gump Studio.NET</AssemblyTitle>
+    <Company>Bradley Uffner</Company>
+    <Product>Gump Studio.NET</Product>
+    <Description>Gump Studio</Description>
+    <Copyright>January 2008</Copyright>
+    <AssemblyVersion>1.9.1</AssemblyVersion>
+    <FileVersion>1.9.1</FileVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\output\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ultima">
+      <HintPath>lib\Ultima.dll</HintPath>
+    </Reference>
+    <Reference Include="UOFont">
+      <HintPath>lib\UOFont.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="StaticArtBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="HuePickerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FontBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="LargeTextEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="NewStaticArtBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DesignerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GumpArtBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PluginManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ClilocBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>README.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
