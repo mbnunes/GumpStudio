@@ -5,8 +5,8 @@
 // Assembly location: C:\GumpStudio_1_8_R3_quinted-02\GumpStudioCore.dll
 
 using System;
-using Microsoft.VisualBasic.CompilerServices;
 using System.Windows.Forms;
+using GumpStudio.Forms;
 
 namespace GumpStudio
 {

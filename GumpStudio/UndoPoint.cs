@@ -8,6 +8,7 @@ using GumpStudio.Elements;
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using GumpStudio.Forms;
 
 namespace GumpStudio
 {

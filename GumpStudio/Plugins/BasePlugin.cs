@@ -5,6 +5,7 @@
 // Assembly location: C:\GumpStudio_1_8_R3_quinted-02\GumpStudioCore.dll
 
 using GumpStudio.Elements;
+using GumpStudio.Forms;
 
 namespace GumpStudio.Plugins
 {

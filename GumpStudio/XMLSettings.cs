@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using GumpStudio.Forms;
 
 namespace GumpStudio
 {
@@ -19,25 +20,27 @@ namespace GumpStudio
         {
             string fullPath = Path.Combine( designerForm.AppPath, "settings.xml" );
 
-            if (!File.Exists( fullPath ))
+            if ( !File.Exists( fullPath ) )
                 return new XMLSettings();
 
-            using XmlTextReader xml = new XmlTextReader( fullPath );
+            using ( XmlTextReader xml = new XmlTextReader( fullPath ) )
+            {
+                XmlSerializer serializer = new XmlSerializer( typeof( XMLSettings ) );
 
-            XmlSerializer serializer = new XmlSerializer( typeof(XMLSettings) );
-
-            return (XMLSettings)serializer.Deserialize( xml );
+                return (XMLSettings) serializer.Deserialize( xml );
+            }
         }
 
         public static void Save( DesignerForm designerForm, XMLSettings options )
         {
             string fullPath = Path.Combine( designerForm.AppPath, "settings.xml" );
 
-            using XmlWriter xml = new XmlTextWriter( fullPath, Encoding.UTF8 ) { Formatting = Formatting.Indented };
+            using ( XmlWriter xml = new XmlTextWriter( fullPath, Encoding.UTF8 ) {Formatting = Formatting.Indented} )
+            {
+                XmlSerializer serializer = new XmlSerializer( typeof( XMLSettings ) );
 
-            XmlSerializer serializer = new XmlSerializer( typeof( XMLSettings ) );
-
-            serializer.Serialize( xml, options );
+                serializer.Serialize( xml, options );
+            }
         }
     }
 }

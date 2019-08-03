@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using GumpStudio.Properties;
 using Ultima;
 using UOFont;
+using UnicodeFonts = UOFont.UnicodeFonts;
 
 namespace GumpStudio.Elements
 {
@@ -191,7 +192,8 @@ namespace GumpStudio.Elements
         {
             if ( mCache != null )
                 mCache.Dispose();
-            mCache = mUnicode ? UnicodeFonts.GetStringImage( mFontIndex, mText + " " ) : Fonts.GetStringImage( mFontIndex, mText + " " );
+
+            mCache = mUnicode ? UnicodeFonts.GetStringImage( mFontIndex, mText + " " ) : throw new NotSupportedException( "ASCII Font?" );//Fonts.GetStringImage( mFontIndex, mText + " " );
             if ( ( mHue == null || mHue.Index == 0 ? 0 : 1 ) != 0 )
                 mHue.ApplyTo( mCache, mPartialHue );
             if ( mCropped )

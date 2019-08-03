@@ -117,16 +117,86 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Error drawing itemID..." xml:space="preserve">
-    <value>Error drawing itemID: {0} it has been replaced with the \"no draw\" item.</value>
+  <data name="Invalid GumpID" xml:space="preserve">
+    <value>Invalid GumpID</value>
+  </data>
+  <data name="About_Gump_Studio_NET" xml:space="preserve">
+    <value>About Gump Studio.NET</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Font Error" xml:space="preserve">
     <value>Font Error</value>
   </data>
-  <data name="Invalid GumpID" xml:space="preserve">
-    <value>Invalid GumpID</value>
-  </data>
   <data name="Reset Size" xml:space="preserve">
     <value>Reset Size</value>
+  </data>
+  <data name="C__Bradley_Uffner__2004" xml:space="preserve">
+    <value>(C) Bradley Uffner, 2004</value>
+  </data>
+  <data name="Gump_Studio_was_written___" xml:space="preserve">
+    <value>Gump Studio was written by Bradley Uffner in January of 2003.</value>
+  </data>
+  <data name="Core_Version__" xml:space="preserve">
+    <value>Core Version: </value>
+  </data>
+  <data name="Error drawing itemID..." xml:space="preserve">
+    <value>Error drawing itemID: {0} it has been replaced with the \"no draw\" item.</value>
+  </data>
+  <data name="PictureBox1.Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PictureBox1.Image.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Name__" xml:space="preserve">
+    <value>Name: </value>
+  </data>
+  <data name="Size__" xml:space="preserve">
+    <value>Size: </value>
+  </data>
+  <data name="Error_creating_cache" xml:space="preserve">
+    <value>Error creating cache file:
+</value>
+  </data>
+  <data name="Generating_static_art_cache" xml:space="preserve">
+    <value>Please Wait, Generating Static Art Cache...  
+</value>
+  </data>
+  <data name="Rebuild_longtime" xml:space="preserve">
+    <value>Rebuilding the cache may take several minutes debending on the speed of your computer.
+Are you sure you want to continue?</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="cmdAdd_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmdAdd.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmdCache_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmdCache.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmdMoveDown_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmdMoveDown.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmdMoveUp_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmdMoveUp.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cmdRemove_Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cmdRemove.Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

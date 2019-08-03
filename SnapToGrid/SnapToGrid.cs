@@ -10,6 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using GumpStudio;
 using GumpStudio.Elements;
+using GumpStudio.Forms;
 using GumpStudio.Plugins;
 
 namespace GumpStudioCore.Plugins
@@ -69,131 +70,130 @@ namespace GumpStudioCore.Plugins
             switch ( e.KeyCode )
             {
                 case Keys.Up:
-                {
-                    IEnumerator enumerator = default;
-
-                    try
                     {
-                        enumerator = _designer.ElementStack.GetSelectedElements().GetEnumerator();
+                        IEnumerator enumerator = default;
 
-                        while ( enumerator.MoveNext() )
+                        try
                         {
-                            object objectValue = RuntimeHelpers.GetObjectValue( enumerator.Current );
-                            BaseElement val = (BaseElement) objectValue;
-                            BaseElement val2 = val;
-                            val2.Y = val2.Y - Config.GridSize.Height;
-                            val.Y = _extender.SnapYToGrid( val.Y );
+                            enumerator = _designer.ElementStack.GetSelectedElements().GetEnumerator();
+
+                            while ( enumerator.MoveNext() )
+                            {
+                                object objectValue = RuntimeHelpers.GetObjectValue( enumerator.Current );
+                                BaseElement val = (BaseElement) objectValue;
+                                BaseElement val2 = val;
+                                val2.Y = val2.Y - Config.GridSize.Height;
+                                val.Y = _extender.SnapYToGrid( val.Y );
+                            }
                         }
-                    }
-                    finally
-                    {
-                        ( enumerator as IDisposable )?.Dispose();
-                    }
+                        finally
+                        {
+                            ( enumerator as IDisposable )?.Dispose();
+                        }
 
-                    modified = true;
-                    _designer.CreateUndoPoint();
+                        modified = true;
+                        _designer.CreateUndoPoint();
 
-                    break;
-                }
+                        break;
+                    }
 
                 case Keys.Down:
-                {
-                    IEnumerator enumerator2 = default;
-
-                    try
                     {
-                        enumerator2 = _designer.ElementStack.GetSelectedElements().GetEnumerator();
+                        IEnumerator enumerator2 = default;
 
-                        while ( enumerator2.MoveNext() )
+                        try
                         {
-                            object objectValue2 = RuntimeHelpers.GetObjectValue( enumerator2.Current );
-                            BaseElement val3 = (BaseElement) objectValue2;
-                            BaseElement val2 = val3;
-                            val2.Y = val2.Y + Config.GridSize.Height;
-                            val3.Y = _extender.SnapYToGrid( val3.Y );
+                            enumerator2 = _designer.ElementStack.GetSelectedElements().GetEnumerator();
+
+                            while ( enumerator2.MoveNext() )
+                            {
+                                object objectValue2 = RuntimeHelpers.GetObjectValue( enumerator2.Current );
+                                BaseElement val3 = (BaseElement) objectValue2;
+                                BaseElement val2 = val3;
+                                val2.Y = val2.Y + Config.GridSize.Height;
+                                val3.Y = _extender.SnapYToGrid( val3.Y );
+                            }
                         }
-                    }
-                    finally
-                    {
-                        if ( enumerator2 is IDisposable )
+                        finally
                         {
-                            ( enumerator2 as IDisposable ).Dispose();
+                            if ( enumerator2 is IDisposable )
+                            {
+                                ( enumerator2 as IDisposable ).Dispose();
+                            }
                         }
+
+                        modified = true;
+                        _designer.CreateUndoPoint();
+
+                        break;
                     }
-
-                    modified = true;
-                    _designer.CreateUndoPoint();
-
-                    break;
-                }
 
                 case Keys.Left:
-                {
-                    IEnumerator enumerator3 = default;
-
-                    try
                     {
-                        enumerator3 = _designer.ElementStack.GetSelectedElements().GetEnumerator();
+                        IEnumerator enumerator3 = default;
 
-                        while ( enumerator3.MoveNext() )
+                        try
                         {
-                            object objectValue3 = RuntimeHelpers.GetObjectValue( enumerator3.Current );
-                            BaseElement val4 = (BaseElement) objectValue3;
-                            BaseElement val2 = val4;
-                            val2.X = val2.X - Config.GridSize.Width;
-                            val4.X = _extender.SnapXToGrid( val4.X );
+                            enumerator3 = _designer.ElementStack.GetSelectedElements().GetEnumerator();
+
+                            while ( enumerator3.MoveNext() )
+                            {
+                                object objectValue3 = RuntimeHelpers.GetObjectValue( enumerator3.Current );
+                                BaseElement val4 = (BaseElement) objectValue3;
+                                BaseElement val2 = val4;
+                                val2.X = val2.X - Config.GridSize.Width;
+                                val4.X = _extender.SnapXToGrid( val4.X );
+                            }
                         }
-                    }
-                    finally
-                    {
-                        if ( enumerator3 is IDisposable disposable )
+                        finally
                         {
-                            disposable.Dispose();
+                            if ( enumerator3 is IDisposable disposable )
+                            {
+                                disposable.Dispose();
+                            }
                         }
+
+                        modified = true;
+                        _designer.CreateUndoPoint();
+
+                        break;
                     }
-
-                    modified = true;
-                    _designer.CreateUndoPoint();
-
-                    break;
-                }
 
                 case Keys.Right:
-                {
-                    IEnumerator enumerator4 = default;
-
-                    try
                     {
-                        enumerator4 = _designer.ElementStack.GetSelectedElements().GetEnumerator();
+                        IEnumerator enumerator4 = default;
 
-                        while ( enumerator4.MoveNext() )
+                        try
                         {
-                            object objectValue4 = RuntimeHelpers.GetObjectValue( enumerator4.Current );
-                            BaseElement val5 = (BaseElement) objectValue4;
-                            BaseElement val2 = val5;
-                            val2.X = val2.X + Config.GridSize.Width;
-                            val5.X = _extender.SnapXToGrid( val5.X );
+                            enumerator4 = _designer.ElementStack.GetSelectedElements().GetEnumerator();
+
+                            while ( enumerator4.MoveNext() )
+                            {
+                                object objectValue4 = RuntimeHelpers.GetObjectValue( enumerator4.Current );
+                                BaseElement val5 = (BaseElement) objectValue4;
+                                BaseElement val2 = val5;
+                                val2.X = val2.X + Config.GridSize.Width;
+                                val5.X = _extender.SnapXToGrid( val5.X );
+                            }
                         }
-                    }
-                    finally
-                    {
-                        if ( enumerator4 is IDisposable )
+                        finally
                         {
-                            ( enumerator4 as IDisposable ).Dispose();
+                            if ( enumerator4 is IDisposable )
+                            {
+                                ( enumerator4 as IDisposable ).Dispose();
+                            }
                         }
+
+                        modified = true;
+                        _designer.CreateUndoPoint();
+
+                        break;
                     }
-
-                    modified = true;
-                    _designer.CreateUndoPoint();
-
-                    break;
-                }
             }
-
-            e.Handled = true;
 
             if ( modified )
             {
+                e.Handled = true;
                 _designer.picCanvas.Invalidate();
             }
         }

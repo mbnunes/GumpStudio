@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using GumpStudio;
+using GumpStudio.Forms;
 using GumpStudio.Plugins;
 
 namespace GumpStudioCore.Plugins

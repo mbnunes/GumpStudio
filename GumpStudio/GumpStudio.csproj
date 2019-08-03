@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net45</TargetFramework>
     <RootNamespace>GumpStudio</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <FileUpgradeFlags />
@@ -16,26 +16,27 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\output\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ultima">
-      <HintPath>lib\Ultima.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="UOFont">
       <HintPath>lib\UOFont.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Forms\GumpArtBrowser.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>GumpArtBrowser.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Update="StaticArtBrowser.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Update="HuePickerControl.cs">
       <SubType>UserControl</SubType>
@@ -43,31 +44,31 @@
     <Compile Update="FontBrowser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="LargeTextEditor.cs">
+    <Compile Update="Forms\LargeTextEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="NewStaticArtBrowser.cs">
+    <Compile Update="Forms\StaticArtBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="DesignerForm.cs">
+    <Compile Update="Forms\DesignerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Settings.cs">
+    <Compile Update="Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GumpArtBrowser.cs">
+    <Compile Update="Forms\GumpArtBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PluginManager.cs">
+    <Compile Update="Forms\PluginManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmSplash.cs">
+    <Compile Update="Forms\frmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="frmAboutBox.cs">
+    <Compile Update="Forms\frmAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ClilocBrowser.cs">
+    <Compile Update="Forms\ClilocBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -78,8 +79,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ultima\Ultima.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Forms\GumpArtBrowser.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GumpArtBrowser.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
