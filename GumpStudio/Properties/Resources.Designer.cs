@@ -156,6 +156,15 @@ namespace GumpStudio.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error creating cache file:
         ///.
         /// </summary>
@@ -171,6 +180,15 @@ namespace GumpStudio.Properties {
         public static string Error_drawing_itemID___ {
             get {
                 return ResourceManager.GetString("Error drawing itemID...", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed update check..
+        /// </summary>
+        public static string Failed_update_check_ {
+            get {
+                return ResourceManager.GetString("Failed_update_check_", resourceCulture);
             }
         }
         
