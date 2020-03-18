@@ -1,7 +1,5 @@
-﻿GumpStudioCore,
+# GumpStudio - Ultima Online Gump Designer
 
-program for editing and creating Gumps for Ultima Online by Bradley Uffner
+Originally developed by Bradley Uffner.
 
-Code decompiled and Bradley Uffner himself authorized the release of it.
-
-Bradley, thanks for all.
+![gumpstudio](https://user-images.githubusercontent.com/6239195/62419279-0d4a0e80-b6af-11e9-8448-acbdbba37910.png)
