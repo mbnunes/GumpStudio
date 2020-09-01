@@ -29,9 +29,9 @@ namespace GumpStudio
                 return value;
             }
 
-            ClilocBrowser clilocBrowser = new ClilocBrowser();
+            var clilocBrowserForm = new ClilocBrowserForm();
 
-            return edSvc.ShowDialog( clilocBrowser ) == DialogResult.OK ? clilocBrowser.ClilocID : value;
+            return edSvc.ShowDialog(clilocBrowserForm) == DialogResult.OK ? clilocBrowserForm.CliLocId : value;
         }
 
         public override UITypeEditorEditStyle GetEditStyle( ITypeDescriptorContext context )
