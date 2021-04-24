@@ -11,4 +11,9 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
     <_LastSelectedProfileId>C:\Users\evilg\Documents\GumpStudio\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Forms\ClilocBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>

@@ -30,16 +30,23 @@ namespace GumpStudio.Elements
                 bool flag = true;
                 int num1 = 0;
                 int num2;
-                do
+                try
                 {
-                    Bitmap gump = Gumps.GetGump( num1 + value );
-                    if ( gump == null )
-                        flag = false;
-                    gump.Dispose();
-                    ++num1;
-                    num2 = 8;
+                    do
+                    {
+                        Bitmap gump = Gumps.GetGump(num1 + value);
+                        if (gump == null)
+                            flag = false;
+                        gump.Dispose();
+                        ++num1;
+                        num2 = 8;
+                    }
+                    while (num1 <= num2);
+                }catch(Exception e)
+                {
+                    MessageBox.Show("Deu erro");
                 }
-                while ( num1 <= num2 );
+                
                 if ( !flag )
                 {
                     //int num3 = (int) Interaction.MsgBox((object) "Invalid GumpID", MsgBoxStyle.OkOnly, (object) null);

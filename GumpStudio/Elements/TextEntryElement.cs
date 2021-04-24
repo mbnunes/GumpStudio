@@ -140,7 +140,7 @@ namespace GumpStudio.Elements
 
         public string ToRunUOString()
         {
-            return $"AddTextEntry({X}, {Y}, {Width}, {Height}, {Hue}, {Name.Replace( " ", "" )}, {InitialText.Replace( "\"", "\\\"" )});";
+            return $"AddTextEntry({X}, {Y}, {Width}, {Height}, {Hue}, {mID}, {Name.Replace( " ", "" )});";            
         }
     }
 }
