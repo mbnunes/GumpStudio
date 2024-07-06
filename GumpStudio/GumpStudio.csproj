@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net461</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <RootNamespace>GumpStudio</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <FileUpgradeFlags />
@@ -13,6 +13,7 @@
     <AssemblyVersion>1.9.2</AssemblyVersion>
     <FileVersion>1.9.2</FileVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	<NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -24,7 +25,6 @@
     <OutputPath>..\output\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="UOFont">
       <HintPath>lib\UOFont.dll</HintPath>
     </Reference>
@@ -52,9 +52,7 @@
     <Compile Update="Forms\StaticArtBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\DesignerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Update="Forms\DesignerForm.cs" />
     <Compile Update="Forms\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +76,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="squirrel.windows" Version="1.9.1" />
+    <PackageReference Include="squirrel.windows" Version="2.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ultima\Ultima.csproj" />

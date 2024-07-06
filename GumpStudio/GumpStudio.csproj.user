@@ -15,5 +15,8 @@
     <Compile Update="Forms\ClilocBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\DesignerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

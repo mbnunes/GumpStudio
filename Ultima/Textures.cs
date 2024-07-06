@@ -1,258 +1,306 @@
-using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Security.Cryptography;
-using System.Collections.Generic;
 
 namespace Ultima
 {
-	public sealed class Textures
-	{
-		private static FileIndex m_FileIndex = new FileIndex("Texidx.mul", "Texmaps.mul", 0x4000, 10);
-		private static Bitmap[] m_Cache = new Bitmap[0x4000];
-		private static bool[] m_Removed = new bool[0x4000];
-		private static Hashtable m_patched = new Hashtable();
+    public sealed class Textures
+    {
+        private static FileIndex _fileIndex = new FileIndex("Texidx.mul", "Texmaps.mul", 0x4000, 10);
+        private static Bitmap[] _cache = new Bitmap[0x4000];
+        private static bool[] _removed = new bool[0x4000];
+        private static readonly Dictionary<int, bool> _patched = new Dictionary<int, bool>();
 
-		private static byte[] m_StreamBuffer;
-		struct CheckSums
-		{
-			public byte[] checksum;
-			public int pos;
-			public int length;
-			public int index;
-		}
-		private static List<CheckSums> checksums;
+        private struct Checksums
+        {
+            public byte[] Checksum;
+            public int Position;
+            public int Length;
+            public int Extra;
+        }
 
-		/// <summary>
-		/// ReReads texmaps
-		/// </summary>
-		public static void Reload()
-		{
-			m_FileIndex = new FileIndex("Texidx.mul", "Texmaps.mul", 0x4000, 10);
-			m_Cache = new Bitmap[0x4000];
-			m_Removed = new bool[0x4000];
-			m_patched.Clear();
-		}
+        /// <summary>
+        /// ReReads texmaps
+        /// </summary>
+        public static void Reload()
+        {
+            _fileIndex = new FileIndex("Texidx.mul", "Texmaps.mul", 0x4000, 10);
+            _cache = new Bitmap[0x4000];
+            _removed = new bool[0x4000];
+            _patched.Clear();
+        }
 
-		public static int GetIdxLength()
-		{
-			return (int)(m_FileIndex.IdxLength / 12);
-		}
+        public static int GetIdxLength()
+        {
+            return (int)(_fileIndex.IdxLength / 12);
+        }
 
-		/// <summary>
-		/// Removes Texture <see cref="m_Removed"/>
-		/// </summary>
-		/// <param name="index"></param>
-		public static void Remove(int index)
-		{
-			m_Removed[index] = true;
-		}
+        /// <summary>
+        /// Removes Texture <see cref="_removed"/>
+        /// </summary>
+        /// <param name="index"></param>
+        public static void Remove(int index)
+        {
+            _removed[index] = true;
+        }
 
-		/// <summary>
-		/// Replaces Texture
-		/// </summary>
-		/// <param name="index"></param>
-		/// <param name="bmp"></param>
-		public static void Replace(int index, Bitmap bmp)
-		{
-			m_Cache[index] = bmp;
-			m_Removed[index] = false;
-			if (m_patched.Contains(index))
-				m_patched.Remove(index);
-		}
+        /// <summary>
+        /// Replaces Texture
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="bmp"></param>
+        public static void Replace(int index, Bitmap bmp)
+        {
+            _cache[index] = bmp;
+            _removed[index] = false;
+            _patched.Remove(index);
+        }
 
-		/// <summary>
-		/// Tests if index is valid Texture
-		/// </summary>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		public static bool TestTexture(int index)
-		{
-			int length, extra;
-			bool patched;
-			if (m_Removed[index])
-				return false;
-			if (m_Cache[index] != null)
-				return true;
-			bool valid = m_FileIndex.Valid(index, out length, out extra, out patched);
-			if ((!valid) || (length == 0))
-				return false;
-			return true;
-		}
+        /// <summary>
+        /// Tests if index is valid Texture
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static bool TestTexture(int index)
+        {
+            index &= 0x3FFF;
 
-		/// <summary>
-		/// Returns Bitmap of Texture
-		/// </summary>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		public unsafe static Bitmap GetTexture(int index)
-		{
-			bool patched;
-			return GetTexture(index, out patched);
-		}
-		/// <summary>
-		/// Returns Bitmap of Texture with verdata bool
-		/// </summary>
-		/// <param name="index"></param>
-		/// <param name="patched"></param>
-		/// <returns></returns>
-		public unsafe static Bitmap GetTexture(int index, out bool patched)
-		{
-			if (m_patched.Contains(index))
-				patched = (bool)m_patched[index];
-			else
-				patched = false;
-			if (m_Removed[index])
-				return null;
-			if (m_Cache[index] != null)
-				return m_Cache[index];
+            if (_removed[index])
+            {
+                return false;
+            }
 
-			int length, extra;
-			Stream stream = m_FileIndex.Seek(index, out length, out extra, out patched);
-			if (stream == null)
-				return null;
-			if (length == 0)
-				return null;
-			if (patched)
-				m_patched[index] = true;
+            if (_cache[index] != null)
+            {
+                return true;
+            }
 
-			int size = extra == 0 ? 64 : 128;
+            bool valid = _fileIndex.Valid(index, out int length, out int _, out bool _);
 
-			Bitmap bmp = new Bitmap(size, size, PixelFormat.Format16bppArgb1555);
-			BitmapData bd = bmp.LockBits(new Rectangle(0, 0, size, size), ImageLockMode.WriteOnly, PixelFormat.Format16bppArgb1555);
+            return valid && (length != 0);
+        }
 
-			ushort* line = (ushort*)bd.Scan0;
-			int delta = bd.Stride >> 1;
+        /// <summary>
+        /// Returns Bitmap of Texture
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static Bitmap GetTexture(int index)
+        {
+            return GetTexture(index, out bool _);
+        }
 
-			int max = size * size * 2;
+        /// <summary>
+        /// Returns Bitmap of Texture with verdata bool
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="patched"></param>
+        /// <returns></returns>
+        public static unsafe Bitmap GetTexture(int index, out bool patched)
+        {
+            patched = _patched.ContainsKey(index) && _patched[index];
 
-			if (m_StreamBuffer == null || m_StreamBuffer.Length < max)
-				m_StreamBuffer = new byte[max];
-			stream.Read(m_StreamBuffer, 0, max);
+            if (_removed[index])
+            {
+                return null;
+            }
 
-			fixed (byte* data = m_StreamBuffer)
-			{
-				ushort* bindat = (ushort*)data;
-				for (int y = 0; y < size; ++y, line += delta)
-				{
-					ushort* cur = line;
-					ushort* end = cur + size;
+            if (_cache[index] != null)
+            {
+                return _cache[index];
+            }
 
-					while (cur < end)
-						*cur++ = (ushort)(*bindat++ ^ 0x8000);
-				}
-			}
+            Stream stream = _fileIndex.Seek(index, out int length, out int extra, out patched);
+            if (stream == null)
+            {
+                return null;
+            }
 
-			bmp.UnlockBits(bd);
+            if (length == 0)
+            {
+                return null;
+            }
 
-			stream.Close();
-			if (!Files.CacheData)
-				return m_Cache[index] = bmp;
-			else
-				return bmp;
-		}
+            if (patched)
+            {
+                _patched[index] = true;
+            }
 
-		public unsafe static void Save(string path)
-		{
-			string idx = Path.Combine(path, "texidx.mul");
-			string mul = Path.Combine(path, "texmaps.mul");
-			checksums = new List<CheckSums>();
-			using (FileStream fsidx = new FileStream(idx, FileMode.Create, FileAccess.Write, FileShare.Write),
-							  fsmul = new FileStream(mul, FileMode.Create, FileAccess.Write, FileShare.Write))
-			{
-				MemoryStream memidx = new MemoryStream();
-				MemoryStream memmul = new MemoryStream();
-				using (BinaryWriter binidx = new BinaryWriter(memidx),
-									binmul = new BinaryWriter(memmul))
-				{
-					SHA256Managed sha = new SHA256Managed();
-					//StreamWriter Tex = new StreamWriter(new FileStream("d:/texlog.txt", FileMode.Create, FileAccess.ReadWrite));
-					for (int index = 0; index < GetIdxLength(); ++index)
-					{
-						if (m_Cache[index] == null)
-							m_Cache[index] = GetTexture(index);
+            int size = extra == 0 ? 64 : 128;
 
-						Bitmap bmp = m_Cache[index];
-						if ((bmp == null) || (m_Removed[index]))
-						{
-							binidx.Write((int)-1); // lookup
-							binidx.Write((int)0); // length
-							binidx.Write((int)-1); // extra
-						}
-						else
-						{
-							MemoryStream ms = new MemoryStream();
-							bmp.Save(ms, ImageFormat.Bmp);
-							byte[] checksum = sha.ComputeHash(ms.ToArray());
-							CheckSums sum;
-							if (compareSaveImages(checksum, out sum))
-							{
-								binidx.Write((int)sum.pos); //lookup
-								binidx.Write((int)sum.length);
-								binidx.Write((int)0);
-								//Tex.WriteLine(System.String.Format("0x{0:X4} : 0x{1:X4} 0x{2:X4}", index, (int)sum.pos, (int)sum.length));
-								//Tex.WriteLine(System.String.Format("0x{0:X4} -> 0x{1:X4}", sum.index, index));
-								continue;
-							}
-							BitmapData bd = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format16bppArgb1555);
-							ushort* line = (ushort*)bd.Scan0;
-							int delta = bd.Stride >> 1;
+            var bmp = new Bitmap(size, size, PixelFormat.Format16bppArgb1555);
+            BitmapData bd = bmp.LockBits(new Rectangle(0, 0, size, size), ImageLockMode.WriteOnly, PixelFormat.Format16bppArgb1555);
 
-							binidx.Write((int)binmul.BaseStream.Position); //lookup
-							int length = (int)binmul.BaseStream.Position;
+            var line = (ushort*)bd.Scan0;
+            int delta = bd.Stride >> 1;
 
-							for (int Y = 0; Y < bmp.Height; ++Y, line += delta)
-							{
-								ushort* cur = line;
-								for (int X = 0; X < bmp.Width; ++X)
-								{
-									binmul.Write((ushort)(cur[X] ^ 0x8000));
-								}
-							}
-							int start = length;
-							length = (int)binmul.BaseStream.Position - length;
-							binidx.Write(length);
-							binidx.Write((int)(bmp.Width == 64 ? 0 : 1));
-							bmp.UnlockBits(bd);
-							CheckSums s = new CheckSums() { pos = start, length = length, checksum = checksum, index = index };
-							//Tex.WriteLine(System.String.Format("0x{0:X4} : 0x{1:X4} 0x{2:X4}", index, start, length));
-							checksums.Add(s);
-						}
-					}
-					memidx.WriteTo(fsidx);
-					memmul.WriteTo(fsmul);
-				}
-			}
-		}
+            int max = size * size * 2;
 
-		private static bool compareSaveImages(byte[] newchecksum, out CheckSums sum)
-		{
-			sum = new CheckSums();
-			for (int i = 0; i < checksums.Count; ++i)
-			{
-				byte[] cmp = checksums[i].checksum;
-				if (((cmp == null) || (newchecksum == null))
-					|| (cmp.Length != newchecksum.Length))
-				{
-					return false;
-				}
-				bool valid = true;
-				for (int j = 0; j < cmp.Length; ++j)
-				{
-					if (cmp[j] != newchecksum[j])
-					{
-						valid = false;
-						break;
-					}
-				}
-				if (valid)
-				{
-					sum = checksums[i];
-					return true;
-				}
-			}
-			return false;
-		}
-	}
+            byte[] streamBuffer = new byte[max];
+
+            stream.Read(streamBuffer, 0, max);
+
+            fixed (byte* data = streamBuffer)
+            {
+                var binData = (ushort*)data;
+                for (int y = 0; y < size; ++y, line += delta)
+                {
+                    ushort* cur = line;
+                    ushort* end = cur + size;
+
+                    while (cur < end)
+                    {
+                        *cur++ = (ushort)(*binData++ ^ 0x8000);
+                    }
+                }
+            }
+
+            bmp.UnlockBits(bd);
+
+            stream.Close();
+
+            if (!Files.CacheData)
+            {
+                return _cache[index] = bmp;
+            }
+
+            return bmp;
+        }
+
+        public static unsafe void Save(string path)
+        {
+            string idx = Path.Combine(path, "texidx.mul");
+            string mul = Path.Combine(path, "texmaps.mul");
+
+            List<Checksums> checksumList = new List<Checksums>();
+
+            var memIdx = new MemoryStream();
+            var memMul = new MemoryStream();
+
+            using (var binIdx = new BinaryWriter(memIdx))
+            using (var binMul = new BinaryWriter(memMul))
+            {
+                for (int index = 0; index < GetIdxLength(); ++index)
+                {
+                    if (_cache[index] == null)
+                    {
+                        _cache[index] = GetTexture(index);
+                    }
+
+                    Bitmap bmp = _cache[index];
+                    if ((bmp == null) || (_removed[index]))
+                    {
+                        binIdx.Write(0); // lookup
+                        binIdx.Write(0); // length
+                        binIdx.Write(0); // extra
+                    }
+                    else
+                    {
+                        byte[] newChecksum;
+                        using (var sha = SHA256.Create())
+                        using (var ms = new MemoryStream())
+                        {
+                            bmp.Save(ms, ImageFormat.Bmp);
+                            newChecksum = sha.ComputeHash(ms.ToArray());
+                        }
+
+                        if (CompareSaveImages(checksumList, newChecksum, out Checksums sum))
+                        {
+                            binIdx.Write(sum.Position); // lookup
+                            binIdx.Write(sum.Length); // length
+                            binIdx.Write(sum.Extra); // extra
+
+                            continue;
+                        }
+
+                        BitmapData bd = bmp.LockBits(
+                            new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly,
+                            PixelFormat.Format16bppArgb1555);
+                        var line = (ushort*)bd.Scan0;
+                        int delta = bd.Stride >> 1;
+
+                        binIdx.Write((int)binMul.BaseStream.Position); // lookup
+                        var length = (int)binMul.BaseStream.Position;
+
+                        for (int y = 0; y < bmp.Height; ++y, line += delta)
+                        {
+                            ushort* cur = line;
+                            for (int x = 0; x < bmp.Width; ++x)
+                            {
+                                binMul.Write((ushort)(cur[x] ^ 0x8000));
+                            }
+                        }
+
+                        int start = length;
+                        length = (int)binMul.BaseStream.Position - length;
+                        binIdx.Write(length);
+                        var extra = GetExtraFlag(length);
+                        binIdx.Write(extra);
+                        bmp.UnlockBits(bd);
+
+                        checksumList.Add(new Checksums
+                        {
+                            Position = start,
+                            Length = length,
+                            Checksum = newChecksum,
+                            Extra = extra
+                        });
+                    }
+                }
+
+                using (var fileIdx = new FileStream(idx, FileMode.Create, FileAccess.Write, FileShare.Write))
+                using (var fileMul = new FileStream(mul, FileMode.Create, FileAccess.Write, FileShare.Write))
+                {
+                    memIdx.WriteTo(fileIdx);
+                    memMul.WriteTo(fileMul);
+                }
+            }
+
+            memIdx.Dispose();
+        }
+
+        private static int GetExtraFlag(int length)
+        {
+            // length of 0x8000 == width 128x128 else 64x64
+            return length == 0x8000 ? 1 : 0;
+        }
+
+        private static bool CompareSaveImages(IReadOnlyList<Checksums> checksumList, IReadOnlyList<byte> newChecksum, out Checksums sum)
+        {
+            sum = new Checksums();
+            for (int i = 0; i < checksumList.Count; ++i)
+            {
+                byte[] cmp = checksumList[i].Checksum;
+                if ((cmp == null) || (newChecksum == null) || (cmp.Length != newChecksum.Count))
+                {
+                    return false;
+                }
+
+                bool valid = true;
+
+                for (int j = 0; j < cmp.Length; ++j)
+                {
+                    if (cmp[j] == newChecksum[j])
+                    {
+                        continue;
+                    }
+
+                    valid = false;
+                    break;
+                }
+
+                if (!valid)
+                {
+                    continue;
+                }
+
+                sum = checksumList[i];
+                return true;
+            }
+
+            return false;
+        }
+    }
 }

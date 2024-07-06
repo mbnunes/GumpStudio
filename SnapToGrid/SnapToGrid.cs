@@ -23,7 +23,7 @@ namespace GumpStudioCore.Plugins
 
         public override string Name => GetPluginInfo().PluginName;
 
-        public MenuItem ShowGridMenu { get; set; }
+        public ToolStripMenuItem ShowGridMenu { get; set; }
 
         public SnapToGrid()
         {
@@ -216,10 +216,10 @@ namespace GumpStudioCore.Plugins
 
             _extender.Config = Config;
 
-            MenuItem menuItem = new MenuItem( "Snap To Grid", ToggleSnapToGrid );
+            ToolStripMenuItem menuItem = new ToolStripMenuItem( "Snap To Grid", null, ToggleSnapToGrid );
             menuItem.Checked = Config.ShowGrid;
 
-            _designer.mnuPlugins.MenuItems.Add( menuItem );
+            _designer.mnuPlugins.DropDownItems.Add( menuItem );
             _designer.HookPreRender += RenderGrid;
             _designer.HookKeyDown += HookKeyDown;
         }
@@ -316,7 +316,7 @@ namespace GumpStudioCore.Plugins
         private void ToggleSnapToGrid( object sender, EventArgs e )
         {
             Config.ShowGrid = !Config.ShowGrid;
-            ( (MenuItem) sender ).Checked = Config.ShowGrid;
+            ( (ToolStripMenuItem) sender ).Checked = Config.ShowGrid;
             _designer.picCanvas.Invalidate();
         }
     }

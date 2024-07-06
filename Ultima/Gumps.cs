@@ -1,449 +1,531 @@
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
 namespace Ultima
 {
-	public sealed class Gumps
-	{
-		private static FileIndex m_FileIndex = new FileIndex("Gumpidx.mul", "Gumpart.mul", "gumpartLegacyMUL.uop", 0xFFFF, 12, ".tga", -1, true);
+    public sealed class Gumps
+    {
+        private static FileIndex _fileIndex = new FileIndex(
+            "Gumpidx.mul", "Gumpart.mul", "gumpartLegacyMUL.uop", 0xFFFF, 12, ".tga", -1, true);
 
-		private static Bitmap[] m_Cache;
-		private static bool[] m_Removed;
-		private static Hashtable m_patched = new Hashtable();
+        private static Bitmap[] _cache;
+        private static bool[] _removed;
+        private static readonly Dictionary<int, bool> _patched = new Dictionary<int, bool>();
 
-		private static byte[] m_PixelBuffer;
-		private static byte[] m_StreamBuffer;
-		private static byte[] m_ColorTable;
-		static Gumps()
-		{
-			if (m_FileIndex != null)
-			{
-				m_Cache = new Bitmap[m_FileIndex.Index.Length];
-				m_Removed = new bool[m_FileIndex.Index.Length];
-			}
-			else
-			{
-				m_Cache = new Bitmap[0xFFFF];
-				m_Removed = new bool[0xFFFF];
-			}
-		}
-		/// <summary>
-		/// ReReads gumpart
-		/// </summary>
-		public static void Reload()
-		{
-			try
-			{
-				m_FileIndex = new FileIndex("Gumpidx.mul", "Gumpart.mul", "gumpartLegacyMUL.uop", 12, -1, ".tga", -1, true);
-				m_Cache = new Bitmap[m_FileIndex.Index.Length];
-				m_Removed = new bool[m_FileIndex.Index.Length];
-			}
-			catch
-			{
-				m_FileIndex = null;
-				m_Cache = new Bitmap[0xFFFF];
-				m_Removed = new bool[0xFFFF];
-			}
+        private static byte[] _pixelBuffer;
+        private static byte[] _streamBuffer;
+        private static byte[] _colorTable;
 
-			m_PixelBuffer = null;
-			m_StreamBuffer = null;
-			m_ColorTable = null;
-			m_patched.Clear();
-		}
+        static Gumps()
+        {
+            if (_fileIndex != null)
+            {
+                _cache = new Bitmap[_fileIndex.Index.Length];
+                _removed = new bool[_fileIndex.Index.Length];
+            }
+            else
+            {
+                _cache = new Bitmap[0xFFFF];
+                _removed = new bool[0xFFFF];
+            }
+        }
 
-		public static int GetCount()
-		{
-			return m_Cache.Length;
-		}
+        /// <summary>
+        /// ReReads gumpart
+        /// </summary>
+        public static void Reload()
+        {
+            try
+            {
+                _fileIndex = new FileIndex("Gumpidx.mul", "Gumpart.mul", "gumpartLegacyMUL.uop", 0xFFFF, 12, ".tga", -1, true);
+                _cache = new Bitmap[_fileIndex.Index.Length];
+                _removed = new bool[_fileIndex.Index.Length];
+            }
+            catch
+            {
+                _fileIndex = null;
+                _cache = new Bitmap[0xFFFF];
+                _removed = new bool[0xFFFF];
+            }
 
-		/// <summary>
-		/// Replaces Gump <see cref="m_Cache"/>
-		/// </summary>
-		/// <param name="index"></param>
-		/// <param name="bmp"></param>
-		public static void ReplaceGump(int index, Bitmap bmp)
-		{
-			m_Cache[index] = bmp;
-			m_Removed[index] = false;
-			if (m_patched.Contains(index))
-				m_patched.Remove(index);
+            //_pixelBuffer = null;
+            _streamBuffer = null;
+            //_colorTable = null;
+            _patched.Clear();
+        }
 
-		}
+        public static int GetCount()
+        {
+            return _cache.Length;
+        }
 
-		/// <summary>
-		/// Removes Gumpindex <see cref="m_Removed"/>
-		/// </summary>
-		/// <param name="index"></param>
-		public static void RemoveGump(int index)
-		{
-			m_Removed[index] = true;
-		}
+        /// <summary>
+        /// Replaces Gump <see cref="_cache"/>
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="bmp"></param>
+        public static void ReplaceGump(int index, Bitmap bmp)
+        {
+            _cache[index] = bmp;
+            _removed[index] = false;
+            _patched.Remove(index);
+        }
 
-		/// <summary>
-		/// Tests if index is definied
-		/// </summary>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		public static bool IsValidIndex(int index)
-		{
-			if (m_FileIndex == null)
-				return false;
-			if (index > m_Cache.Length - 1)
-				return false;
-			if (m_Removed[index])
-				return false;
-			if (m_Cache[index] != null)
-				return true;
-			int length, extra;
-			bool patched;
+        /// <summary>
+        /// Removes Gumpindex <see cref="_removed"/>
+        /// </summary>
+        /// <param name="index"></param>
+        public static void RemoveGump(int index)
+        {
+            _removed[index] = true;
+        }
 
-			if (!m_FileIndex.Valid(index, out length, out extra, out patched))
-				return false;
-			if (extra == -1)
-				return false;
-			int width = (extra >> 16) & 0xFFFF;
-			int height = extra & 0xFFFF;
+        /// <summary>
+        /// Tests if index is defined
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static bool IsValidIndex(int index)
+        {
+            if (_fileIndex == null)
+            {
+                return false;
+            }
 
-			if (width <= 0 || height <= 0)
-				return false;
+            if (index > _cache.Length - 1)
+            {
+                return false;
+            }
 
-			return true;
-		}
+            if (_removed[index])
+            {
+                return false;
+            }
 
-		public static byte[] GetRawGump(int index, out int width, out int height)
-		{
-			width = -1;
-			height = -1;
-			int length, extra;
-			bool patched;
-			Stream stream = m_FileIndex.Seek(index, out length, out extra, out patched);
-			if (stream == null)
-				return null;
-			if (extra == -1)
-				return null;
-			width = (extra >> 16) & 0xFFFF;
-			height = extra & 0xFFFF;
-			if (width <= 0 || height <= 0)
-				return null;
-			byte[] buffer = new byte[length];
-			stream.Read(buffer, 0, length);
-			stream.Close();
-			return buffer;
-		}
+            if (_cache[index] != null)
+            {
+                return true;
+            }
 
-		/// <summary>
-		/// Returns Bitmap of index and applies Hue
-		/// </summary>
-		/// <param name="index"></param>
-		/// <param name="hue"></param>
-		/// <param name="onlyHueGrayPixels"></param>
-		/// <returns></returns>
-		public unsafe static Bitmap GetGump(int index, Hue hue, bool onlyHueGrayPixels, out bool patched)
-		{
-			int length, extra;
-			Stream stream = m_FileIndex.Seek(index, out length, out extra, out patched);
+            if (!_fileIndex.Valid(index, out int _, out int extra, out bool _))
+            {
+                return false;
+            }
 
-			if (stream == null)
-				return null;
-			if (extra == -1)
-			{
-				stream.Close();
-				return null;
-			}
+            if (extra == -1)
+            {
+                return false;
+            }
 
-			int width = (extra >> 16) & 0xFFFF;
-			int height = extra & 0xFFFF;
+            int width = (extra >> 16) & 0xFFFF;
+            int height = extra & 0xFFFF;
 
-			if (width <= 0 || height <= 0)
-			{
-				stream.Close();
-				return null;
-			}
+            return width > 0 && height > 0;
+        }
 
-			int bytesPerLine = width << 1;
-			int bytesPerStride = (bytesPerLine + 3) & ~3;
-			int bytesForImage = height * bytesPerStride;
+        public static byte[] GetRawGump(int index, out int width, out int height)
+        {
+            width = -1;
+            height = -1;
 
-			int pixelsPerStride = (width + 1) & ~1;
-			int pixelsPerStrideDelta = pixelsPerStride - width;
+            Stream stream = _fileIndex.Seek(index, out int length, out int extra, out bool _);
 
-			byte[] pixelBuffer = m_PixelBuffer;
+            if (stream == null)
+            {
+                return null;
+            }
 
-			if (pixelBuffer == null || pixelBuffer.Length < bytesForImage)
-				m_PixelBuffer = pixelBuffer = new byte[(bytesForImage + 2047) & ~2047];
+            if (extra == -1)
+            {
+                return null;
+            }
 
-			byte[] streamBuffer = m_StreamBuffer;
+            width = (extra >> 16) & 0xFFFF;
+            height = extra & 0xFFFF;
+            if (width <= 0 || height <= 0)
+            {
+                return null;
+            }
 
-			if (streamBuffer == null || streamBuffer.Length < length)
-				m_StreamBuffer = streamBuffer = new byte[(length + 2047) & ~2047];
+            var buffer = new byte[length];
+            stream.Read(buffer, 0, length);
+            stream.Close();
 
-			byte[] colorTable = m_ColorTable;
+            return buffer;
+        }
 
-			if (colorTable == null)
-				m_ColorTable = colorTable = new byte[128];
+        /// <summary>
+        /// Returns Bitmap of index and applies Hue
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="hue"></param>
+        /// <param name="onlyHueGrayPixels"></param>
+        /// <param name="patched"></param>
+        /// <returns></returns>
+        public static unsafe Bitmap GetGump(int index, Hue hue, bool onlyHueGrayPixels, out bool patched)
+        {
+            Stream stream = _fileIndex.Seek(index, out int length, out int extra, out patched);
 
-			stream.Read(streamBuffer, 0, length);
+            if (stream == null)
+            {
+                return null;
+            }
 
-			fixed (short* psHueColors = hue.Colors)
-			{
-				fixed (byte* pbStream = streamBuffer)
-				{
-					fixed (byte* pbPixels = pixelBuffer)
-					{
-						fixed (byte* pbColorTable = colorTable)
-						{
-							ushort* pHueColors = (ushort*)psHueColors;
-							ushort* pHueColorsEnd = pHueColors + 32;
+            if (extra == -1)
+            {
+                stream.Close();
+                return null;
+            }
 
-							ushort* pColorTable = (ushort*)pbColorTable;
+            int width = (extra >> 16) & 0xFFFF;
+            int height = extra & 0xFFFF;
 
-							ushort* pColorTableOpaque = pColorTable;
+            if (width <= 0 || height <= 0)
+            {
+                stream.Close();
+                return null;
+            }
 
-							while (pHueColors < pHueColorsEnd)
-								*pColorTableOpaque++ = *pHueColors++;
+            int bytesPerLine = width << 1;
+            int bytesPerStride = (bytesPerLine + 3) & ~3;
+            int bytesForImage = height * bytesPerStride;
 
-							ushort* pPixelDataStart = (ushort*)pbPixels;
+            int pixelsPerStride = (width + 1) & ~1;
+            int pixelsPerStrideDelta = pixelsPerStride - width;
 
-							int* pLookup = (int*)pbStream;
-							int* pLookupEnd = pLookup + height;
-							int* pPixelRleStart = pLookup;
-							int* pPixelRle;
+            byte[] pixelBuffer = _pixelBuffer;
 
-							ushort* pPixel = pPixelDataStart;
-							ushort* pRleEnd = pPixel;
-							ushort* pPixelEnd = pPixel + width;
+            if (pixelBuffer == null || pixelBuffer.Length < bytesForImage)
+            {
+                _pixelBuffer = pixelBuffer = new byte[(bytesForImage + 2047) & ~2047];
+            }
 
-							ushort color, count;
+            byte[] streamBuffer = _streamBuffer;
 
-							if (onlyHueGrayPixels)
-							{
-								while (pLookup < pLookupEnd)
-								{
-									pPixelRle = pPixelRleStart + *pLookup++;
-									pRleEnd = pPixel;
+            if (streamBuffer == null || streamBuffer.Length < length)
+            {
+                _streamBuffer = streamBuffer = new byte[(length + 2047) & ~2047];
+            }
 
-									while (pPixel < pPixelEnd)
-									{
-										color = *(ushort*)pPixelRle;
-										count = *(1 + (ushort*)pPixelRle);
-										++pPixelRle;
+            byte[] colorTable = _colorTable;
 
-										pRleEnd += count;
+            if (colorTable == null)
+            {
+                _colorTable = colorTable = new byte[128];
+            }
 
-										if (color != 0 && (color & 0x1F) == ((color >> 5) & 0x1F) && (color & 0x1F) == ((color >> 10) & 0x1F))
-											color = pColorTable[color >> 10];
-										else if (color != 0)
-											color ^= 0x8000;
+            stream.Read(streamBuffer, 0, length);
 
-										while (pPixel < pRleEnd)
-											*pPixel++ = color;
-									}
+            fixed (ushort* psHueColors = hue.Colors)
+            {
+                fixed (byte* pbStream = streamBuffer)
+                {
+                    fixed (byte* pbPixels = pixelBuffer)
+                    {
+                        fixed (byte* pbColorTable = colorTable)
+                        {
+                            var pHueColors = psHueColors;
+                            ushort* pHueColorsEnd = pHueColors + 32;
 
-									pPixel += pixelsPerStrideDelta;
-									pPixelEnd += pixelsPerStride;
-								}
-							}
-							else
-							{
-								while (pLookup < pLookupEnd)
-								{
-									pPixelRle = pPixelRleStart + *pLookup++;
-									pRleEnd = pPixel;
+                            var pColorTable = (ushort*)pbColorTable;
 
-									while (pPixel < pPixelEnd)
-									{
-										color = *(ushort*)pPixelRle;
-										count = *(1 + (ushort*)pPixelRle);
-										++pPixelRle;
+                            ushort* pColorTableOpaque = pColorTable;
 
-										pRleEnd += count;
+                            while (pHueColors < pHueColorsEnd)
+                            {
+                                *pColorTableOpaque++ = *pHueColors++;
+                            }
 
-										if (color != 0)
-											color = pColorTable[color >> 10];
+                            var pPixelDataStart = (ushort*)pbPixels;
 
-										while (pPixel < pRleEnd)
-											*pPixel++ = color;
-									}
+                            var pLookup = (int*)pbStream;
+                            int* pLookupEnd = pLookup + height;
+                            int* pPixelRleStart = pLookup;
+                            int* pPixelRle;
 
-									pPixel += pixelsPerStrideDelta;
-									pPixelEnd += pixelsPerStride;
-								}
-							}
-							stream.Close();
-							return new Bitmap(width, height, bytesPerStride, PixelFormat.Format16bppArgb1555, (IntPtr)pPixelDataStart);
-						}
-					}
-				}
-			}
-		}
+                            ushort* pPixel = pPixelDataStart;
+                            ushort* pRleEnd;
+                            ushort* pPixelEnd = pPixel + width;
 
-		/// <summary>
-		/// Returns Bitmap of index
-		/// </summary>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		public unsafe static Bitmap GetGump(int index)
-		{
-			bool patched;
-			return GetGump(index, out patched);
-		}
+                            ushort color, count;
 
-		/// <summary>
-		/// Returns Bitmap of index and if verdata patched
-		/// </summary>
-		/// <param name="index"></param>
-		/// <param name="patched"></param>
-		/// <returns></returns>
-		public unsafe static Bitmap GetGump(int index, out bool patched)
-		{
-			if (m_patched.Contains(index))
-				patched = (bool)m_patched[index];
-			else
-				patched = false;
-			if (index > m_Cache.Length - 1)
-				return null;
-			if (m_Removed[index])
-				return null;
-			if (m_Cache[index] != null)
-				return m_Cache[index];
-			int length, extra;
-			Stream stream = m_FileIndex.Seek(index, out length, out extra, out patched);
-			if (stream == null)
-				return null;
-			if (extra == -1)
-			{
-				stream.Close();
-				return null;
-			}
-			if (patched)
-				m_patched[index] = true;
+                            if (onlyHueGrayPixels)
+                            {
+                                while (pLookup < pLookupEnd)
+                                {
+                                    pPixelRle = pPixelRleStart + *pLookup++;
+                                    pRleEnd = pPixel;
 
-			int width = (extra >> 16) & 0xFFFF;
-			int height = extra & 0xFFFF;
+                                    while (pPixel < pPixelEnd)
+                                    {
+                                        color = *(ushort*)pPixelRle;
+                                        count = *(1 + (ushort*)pPixelRle);
+                                        ++pPixelRle;
 
-			if (width <= 0 || height <= 0)
-				return null;
-			Bitmap bmp = new Bitmap(width, height, PixelFormat.Format16bppArgb1555);
-			BitmapData bd = bmp.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, PixelFormat.Format16bppArgb1555);
+                                        pRleEnd += count;
 
-			if (m_StreamBuffer == null || m_StreamBuffer.Length < length)
-				m_StreamBuffer = new byte[length];
-			stream.Read(m_StreamBuffer, 0, length);
+                                        if (color != 0 && (color & 0x1F) == ((color >> 5) & 0x1F) && (color & 0x1F) == ((color >> 10) & 0x1F))
+                                        {
+                                            color = pColorTable[color >> 10];
+                                        }
+                                        else if (color != 0)
+                                        {
+                                            color ^= 0x8000;
+                                        }
 
-			fixed (byte* data = m_StreamBuffer)
-			{
-				int* lookup = (int*)data;
-				ushort* dat = (ushort*)data;
+                                        while (pPixel < pRleEnd)
+                                        {
+                                            *pPixel++ = color;
+                                        }
+                                    }
 
-				ushort* line = (ushort*)bd.Scan0;
-				int delta = bd.Stride >> 1;
-				int count = 0;
-				for (int y = 0; y < height; ++y, line += delta)
-				{
-					count = (*lookup++ * 2);
+                                    pPixel += pixelsPerStrideDelta;
+                                    pPixelEnd += pixelsPerStride;
+                                }
+                            }
+                            else
+                            {
+                                while (pLookup < pLookupEnd)
+                                {
+                                    pPixelRle = pPixelRleStart + *pLookup++;
+                                    pRleEnd = pPixel;
 
-					ushort* cur = line;
-					ushort* end = line + bd.Width;
+                                    while (pPixel < pPixelEnd)
+                                    {
+                                        color = *(ushort*)pPixelRle;
+                                        count = *(1 + (ushort*)pPixelRle);
+                                        ++pPixelRle;
 
-					while (cur < end)
-					{
-						ushort color = dat[count++];
-						ushort* next = cur + dat[count++];
+                                        pRleEnd += count;
 
-						if (color == 0)
-							cur = next;
-						else
-						{
-							color ^= 0x8000;
-							while (cur < next)
-								*cur++ = color;
-						}
-					}
-				}
-			}
+                                        if (color != 0)
+                                        {
+                                            color = pColorTable[color >> 10];
+                                        }
 
-			bmp.UnlockBits(bd);
-			if (Files.CacheData)
-				return m_Cache[index] = bmp;
-			else
-				return bmp;
-		}
+                                        while (pPixel < pRleEnd)
+                                        {
+                                            *pPixel++ = color;
+                                        }
+                                    }
 
-		public static unsafe void Save(string path)
-		{
-			string idx = Path.Combine(path, "Gumpidx.mul");
-			string mul = Path.Combine(path, "Gumpart.mul");
-			using (FileStream fsidx = new FileStream(idx, FileMode.Create, FileAccess.Write, FileShare.Write),
-							  fsmul = new FileStream(mul, FileMode.Create, FileAccess.Write, FileShare.Write))
-			{
-				using (BinaryWriter binidx = new BinaryWriter(fsidx),
-									binmul = new BinaryWriter(fsmul))
-				{
-					for (int index = 0; index < m_Cache.Length; index++)
-					{
-						if (m_Cache[index] == null)
-							m_Cache[index] = GetGump(index);
+                                    pPixel += pixelsPerStrideDelta;
+                                    pPixelEnd += pixelsPerStride;
+                                }
+                            }
 
-						Bitmap bmp = m_Cache[index];
-						if ((bmp == null) || (m_Removed[index]))
-						{
-							binidx.Write((int)-1); // lookup
-							binidx.Write((int)-1); // length
-							binidx.Write((int)-1); // extra
-						}
-						else
-						{
-							BitmapData bd = bmp.LockBits(new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly, PixelFormat.Format16bppArgb1555);
-							ushort* line = (ushort*)bd.Scan0;
-							int delta = bd.Stride >> 1;
+                            stream.Close();
 
-							binidx.Write((int)fsmul.Position); //lookup
-							int length = (int)fsmul.Position;
-							int fill = 0;
-							for (int i = 0; i < bmp.Height; ++i)
-							{
-								binmul.Write(fill);
-							}
-							for (int Y = 0; Y < bmp.Height; ++Y, line += delta)
-							{
-								ushort* cur = line;
+                            return new Bitmap(width, height, bytesPerStride, PixelFormat.Format16bppArgb1555, (IntPtr)pPixelDataStart);
+                        }
+                    }
+                }
+            }
+        }
 
-								int X = 0;
-								int current = (int)fsmul.Position;
-								fsmul.Seek(length + Y * 4, SeekOrigin.Begin);
-								int offset = (current - length) / 4;
-								binmul.Write(offset);
-								fsmul.Seek(length + offset * 4, SeekOrigin.Begin);
+        /// <summary>
+        /// Returns Bitmap of index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static Bitmap GetGump(int index)
+        {
+            return GetGump(index, out bool _);
+        }
 
-								while (X < bd.Width)
-								{
-									int Run = 1;
-									ushort c = cur[X];
-									while ((X + Run) < bd.Width)
-									{
-										if (c != cur[X + Run])
-											break;
-										++Run;
-									}
-									if (c == 0)
-										binmul.Write(c);
-									else
-										binmul.Write((ushort)(c ^ 0x8000));
-									binmul.Write((short)Run);
-									X += Run;
-								}
-							}
-							length = (int)fsmul.Position - length;
-							binidx.Write(length);
-							binidx.Write((int)(bmp.Width << 16) + bmp.Height);
-							bmp.UnlockBits(bd);
-						}
-					}
-				}
-			}
-		}
-	}
+        /// <summary>
+        /// Returns Bitmap of index and if verdata patched
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="patched"></param>
+        /// <returns></returns>
+        public static unsafe Bitmap GetGump(int index, out bool patched)
+        {
+            patched = _patched.ContainsKey(index) && _patched[index];
+
+            if (index > _cache.Length - 1)
+            {
+                return null;
+            }
+
+            if (_removed[index])
+            {
+                return null;
+            }
+
+            if (_cache[index] != null)
+            {
+                return _cache[index];
+            }
+
+            Stream stream = _fileIndex.Seek(index, out int length, out int extra, out patched);
+            if (stream == null)
+            {
+                return null;
+            }
+
+            if (extra == -1)
+            {
+                stream.Close();
+                return null;
+            }
+            if (patched)
+            {
+                _patched[index] = true;
+            }
+
+            int width = (extra >> 16) & 0xFFFF;
+            int height = extra & 0xFFFF;
+
+            if (width <= 0 || height <= 0)
+            {
+                return null;
+            }
+
+            var bmp = new Bitmap(width, height, PixelFormat.Format16bppArgb1555);
+            BitmapData bd = bmp.LockBits(
+                new Rectangle(0, 0, width, height), ImageLockMode.WriteOnly, PixelFormat.Format16bppArgb1555);
+
+            if (_streamBuffer == null || _streamBuffer.Length < length)
+            {
+                _streamBuffer = new byte[length];
+            }
+
+            stream.Read(_streamBuffer, 0, length);
+
+            fixed (byte* data = _streamBuffer)
+            {
+                var lookup = (int*)data;
+                var dat = (ushort*)data;
+
+                var line = (ushort*)bd.Scan0;
+                int delta = bd.Stride >> 1;
+                for (int y = 0; y < height; ++y, line += delta)
+                {
+                    int count = (*lookup++ * 2);
+
+                    ushort* cur = line;
+                    ushort* end = line + bd.Width;
+
+                    while (cur < end)
+                    {
+                        ushort color = dat[count++];
+                        ushort* next = cur + dat[count++];
+
+                        if (color == 0)
+                        {
+                            cur = next;
+                        }
+                        else
+                        {
+                            color ^= 0x8000;
+                            while (cur < next)
+                            {
+                                *cur++ = color;
+                            }
+                        }
+                    }
+                }
+            }
+
+            bmp.UnlockBits(bd);
+            if (Files.CacheData)
+            {
+                return _cache[index] = bmp;
+            }
+
+            return bmp;
+        }
+
+        public static unsafe void Save(string path)
+        {
+            string idx = Path.Combine(path, "Gumpidx.mul");
+            string mul = Path.Combine(path, "Gumpart.mul");
+
+            using (var fsidx = new FileStream(idx, FileMode.Create, FileAccess.Write, FileShare.Write))
+            using (var fsmul = new FileStream(mul, FileMode.Create, FileAccess.Write, FileShare.Write))
+            using (var binidx = new BinaryWriter(fsidx))
+            using (var binmul = new BinaryWriter(fsmul))
+            {
+                for (int index = 0; index < _cache.Length; index++)
+                {
+                    if (_cache[index] == null)
+                    {
+                        _cache[index] = GetGump(index);
+                    }
+
+                    Bitmap bmp = _cache[index];
+                    if ((bmp == null) || (_removed[index]))
+                    {
+                        binidx.Write(-1); // lookup
+                        binidx.Write(-1); // length
+                        binidx.Write(-1); // extra
+                    }
+                    else
+                    {
+                        BitmapData bd = bmp.LockBits(
+                            new Rectangle(0, 0, bmp.Width, bmp.Height), ImageLockMode.ReadOnly,
+                            PixelFormat.Format16bppArgb1555);
+                        var line = (ushort*)bd.Scan0;
+                        int delta = bd.Stride >> 1;
+
+                        binidx.Write((int)fsmul.Position); //lookup
+                        var length = (int)fsmul.Position;
+                        const int fill = 0;
+                        for (int i = 0; i < bmp.Height; ++i)
+                        {
+                            binmul.Write(fill);
+                        }
+
+                        for (int y = 0; y < bmp.Height; ++y, line += delta)
+                        {
+                            ushort* cur = line;
+
+                            int x = 0;
+                            var current = (int)fsmul.Position;
+                            fsmul.Seek(length + (y * 4), SeekOrigin.Begin);
+                            int offset = (current - length) / 4;
+                            binmul.Write(offset);
+                            fsmul.Seek(length + (offset * 4), SeekOrigin.Begin);
+
+                            while (x < bd.Width)
+                            {
+                                int run = 1;
+                                ushort c = cur[x];
+                                while ((x + run) < bd.Width)
+                                {
+                                    if (c != cur[x + run])
+                                    {
+                                        break;
+                                    }
+
+                                    ++run;
+                                }
+
+                                if (c == 0)
+                                {
+                                    binmul.Write(c);
+                                }
+                                else
+                                {
+                                    binmul.Write((ushort)(c ^ 0x8000));
+                                }
+
+                                binmul.Write((short)run);
+                                x += run;
+                            }
+                        }
+
+                        length = (int)fsmul.Position - length;
+                        binidx.Write(length);
+                        binidx.Write((bmp.Width << 16) + bmp.Height);
+                        bmp.UnlockBits(bd);
+                    }
+                }
+            }
+        }
+    }
 }

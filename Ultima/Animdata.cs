@@ -1,145 +1,168 @@
-using System.Collections;
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Ultima
 {
-	public sealed class Animdata
-	{
-		private static int[] m_Header;
-		private static byte[] m_Unknown;
+    public sealed class Animdata
+    {
+        private static int[] _header;
+        private static byte[] _unknown;
 
-		public static Hashtable AnimData { get; set; }
-		static Animdata()
-		{
-			Initialize();
-		}
+        public static Dictionary<int, AnimdataEntry> AnimData { get; set; }
 
-		/// <summary>
-		/// Reads animdata.mul and fills <see cref="AnimData"/>
-		/// </summary>
-		public static void Initialize()
-		{
-			AnimData = new Hashtable();
-			string path = Files.GetFilePath("animdata.mul");
-			if (path != null)
-			{
-				using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
-				{
-					using (BinaryReader bin = new BinaryReader(fs))
-					{
-						unsafe
-						{
-							int id = 0;
-							int h = 0;
-							byte unk;
-							byte fcount;
-							byte finter;
-							byte fstart;
-							sbyte[] fdata;
-							m_Header = new int[bin.BaseStream.Length / (4 + 8 * (64 + 4))];
-							while (h<m_Header.Length/*bin.BaseStream.Length != bin.BaseStream.Position*/)
-							{
-								m_Header[h++] = bin.ReadInt32(); // chunk header
-								// Read 8 tiles
-								byte[] buffer = bin.ReadBytes(544);
-								fixed (byte* buf = buffer)
-								{
-									byte* data = buf;
-									for (int i = 0; i < 8; ++i, ++id)
-									{
-										fdata = new sbyte[64];
-										for (int j = 0; j < 64; ++j)
-											fdata[j] = (sbyte)*data++;
-										unk = *data++;
-										fcount = *data++;
-										finter = *data++;
-										fstart = *data++;
-										if (fcount > 0)
-											AnimData[id] = new Data(fdata, unk, fcount, finter, fstart);
-									}
-								}
-							}
-							int remaining = (int)(bin.BaseStream.Length - bin.BaseStream.Position);
-							if (remaining>0)
-								m_Unknown = bin.ReadBytes(remaining);
-						}
-					}
-				}
-			}
-		}
-		/// <summary>
-		/// Gets Animation <see cref="Data"/>
-		/// </summary>
-		/// <param name="id"></param>
-		/// <returns></returns>
-		public static Data GetAnimData(int id)
-		{
-			if (AnimData.Contains(id))
-				return ((Data)AnimData[id]);
-			else
-				return null;
-		}
+        static Animdata()
+        {
+            Initialize();
+        }
 
-		public static void Save(string path)
-		{
-			string FileName = Path.Combine(path, "animdata.mul");
-			using (FileStream fs = new FileStream(FileName, FileMode.Create, FileAccess.Write, FileShare.Write))
-			{
-				using (BinaryWriter bin = new BinaryWriter(fs))
-				{
-					int id = 0;
-					int h = 0;
-					while (id < m_Header.Length * 8)
-					{
-						bin.Write(m_Header[h++]);
-						for (int i = 0; i < 8; ++i, ++id)
-						{
-							Data data = GetAnimData(id);
-							for (int j = 0; j < 64; ++j)
-							{
-								if (data != null)
-									bin.Write(data.FrameData[j]);
-								else
-									bin.Write((sbyte)0);
-							}
-							if (data != null)
-							{
-								bin.Write(data.Unknown);
-								bin.Write(data.FrameCount);
-								bin.Write(data.FrameInterval);
-								bin.Write(data.FrameStart);
-							}
-							else
-							{
-								bin.Write((byte)0);
-								bin.Write((byte)0);
-								bin.Write((byte)0);
-								bin.Write((byte)0);
-							}
-						}
-					}
-					if (m_Unknown != null)
-						bin.Write(m_Unknown);
-				}
-			}
-		}
+        /// <summary>
+        /// Reads animdata.mul and fills <see cref="AnimData"/>
+        /// </summary>
+        public static void Initialize()
+        {
+            AnimData = new Dictionary<int, AnimdataEntry>();
 
-		public class Data
-		{
-			public sbyte[] FrameData { get; set; }
-			public byte Unknown { get; private set; }
-			public byte FrameCount { get; set; }
-			public byte FrameInterval { get; set; }
-			public byte FrameStart { get; set; }
+            string path = Files.GetFilePath("animdata.mul");
+            if (path == null)
+            {
+                return;
+            }
 
-			public Data(sbyte[] frame, byte unk, byte fcount, byte finter, byte fstart)
-			{
-				FrameData = frame;
-				Unknown = unk;
-				FrameCount = fcount;
-				FrameInterval = finter;
-				FrameStart = fstart;
-			}
-		}
-	}
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read))
+            using (var bin = new BinaryReader(fs))
+            {
+                unsafe
+                {
+                    int id = 0;
+                    int h = 0;
+
+                    _header = new int[bin.BaseStream.Length / (4 + (8 * (64 + 4)))];
+
+                    while (h < _header.Length)
+                    {
+                        _header[h++] = bin.ReadInt32(); // chunk header
+
+                        // Read 8 tiles
+                        byte[] buffer = bin.ReadBytes(544);
+
+                        fixed (byte* buf = buffer)
+                        {
+                            byte* data = buf;
+
+                            for (int i = 0; i < 8; ++i, ++id)
+                            {
+                                sbyte[] frame = new sbyte[64];
+
+                                for (int j = 0; j < 64; ++j)
+                                {
+                                    frame[j] = (sbyte)*data++;
+                                }
+
+                                byte unk = *data++;
+                                byte frameCount = *data++;
+                                byte frameInterval = *data++;
+                                byte frameStart = *data++;
+
+                                if (frameCount > 0)
+                                {
+                                    AnimData[id] = new AnimdataEntry(frame, unk, frameCount, frameInterval, frameStart);
+                                }
+                            }
+                        }
+                    }
+
+                    var remaining = (int)(bin.BaseStream.Length - bin.BaseStream.Position);
+                    if (remaining > 0)
+                    {
+                        _unknown = bin.ReadBytes(remaining);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets Animation <see cref="AnimdataEntry"/>
+        /// </summary>
+        /// <param name="id"></param>
+        public static AnimdataEntry GetAnimData(int id)
+        {
+            return AnimData.TryGetValue(id, out AnimdataEntry value) ? value : null;
+        }
+
+        public static void Save(string path)
+        {
+            string fileName = Path.Combine(path, "animdata.mul");
+
+            using (var fs = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.Write))
+            using (var bin = new BinaryWriter(fs))
+            {
+                int id = 0;
+                int h = 0;
+                int maxId = AnimData.Keys.Max();
+                while (id <= maxId)
+                {
+                    int headerChunk = h < _header.Length ? _header[h++] : Random.Shared.Next();
+                    bin.Write(headerChunk);
+                    for (int i = 0; i < 8; ++i, ++id)
+                    {
+                        AnimdataEntry animdataEntry = GetAnimData(id);
+                        for (int j = 0; j < 64; ++j)
+                        {
+                            if (animdataEntry != null)
+                            {
+                                bin.Write(animdataEntry.FrameData[j]);
+                            }
+                            else
+                            {
+                                bin.Write((sbyte)0);
+                            }
+                        }
+
+                        if (animdataEntry != null)
+                        {
+                            bin.Write(animdataEntry.Unknown);
+                            bin.Write(animdataEntry.FrameCount);
+                            bin.Write(animdataEntry.FrameInterval);
+                            bin.Write(animdataEntry.FrameStart);
+                        }
+                        else
+                        {
+                            bin.Write((byte)0);
+                            bin.Write((byte)0);
+                            bin.Write((byte)0);
+                            bin.Write((byte)0);
+                        }
+                    }
+                }
+
+                if (_unknown != null)
+                {
+                    bin.Write(_unknown);
+                }
+            }
+        }
+
+        public class AnimdataEntry
+        {
+            public sbyte[] FrameData { get; set; }
+            public byte Unknown { get; }
+            public byte FrameCount { get; set; }
+            public byte FrameInterval { get; set; }
+            public byte FrameStart { get; set; }
+
+            // Empty constructor needed for deserialization.
+            public AnimdataEntry() { }
+
+            public AnimdataEntry(sbyte[] frame, byte unk, byte frameCount, byte frameInterval, byte frameStart)
+            {
+                FrameData = frame;
+                Unknown = unk;
+                FrameCount = frameCount;
+                FrameInterval = frameInterval;
+                FrameStart = frameStart;
+            }
+        }
+    }
 }

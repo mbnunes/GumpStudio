@@ -35,10 +35,10 @@ namespace RunUOExport
         {
             _designer = frmDesigner;
 
-            MenuItem menuItem = new MenuItem( "RunUO Export", ExportClick );
+            ToolStripMenuItem menuItem = new ToolStripMenuItem( "RunUO Export", null, ExportClick );
 
             _designer.mnuFileExport.Enabled = true;
-            _designer.mnuFileExport.MenuItems.Add( menuItem );
+            _designer.mnuFileExport.DropDownItems.Add( menuItem );
         }
 
         private void ExportClick( object sender, EventArgs e )

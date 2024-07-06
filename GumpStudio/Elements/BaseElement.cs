@@ -163,36 +163,46 @@ namespace GumpStudio.Elements
         this.mComment = "";
     }
 
-    public virtual void AddContextMenus(ref MenuItem GroupMenu, ref MenuItem PositionMenu, ref MenuItem OrderMenu, ref MenuItem MiscMenu)
-    {
-      int num = this.mParent.GetElements().Count - 1;
-      if (num > 0)
-      {
-        if (this.Z < num)
+        public virtual void AddContextMenus(ref ToolStripMenuItem GroupMenu, ref ToolStripMenuItem PositionMenu, ref ToolStripMenuItem OrderMenu, ref ToolStripMenuItem MiscMenu)
         {
-          OrderMenu.MenuItems.Add(new MenuItem("Move Front", new EventHandler(this.DoMoveFrontMenu)));
-          OrderMenu.MenuItems.Add(new MenuItem("Move First", new EventHandler(this.DoMoveFirstMenu)));
-        }
-        if (this.Z >= 1)
-        {
-          OrderMenu.MenuItems.Add(new MenuItem("Move Back", new EventHandler(this.DoMoveBackMenu)));
-          OrderMenu.MenuItems.Add(new MenuItem("Move Last", new EventHandler(this.DoMoveLastMenu)));
-        }
-      }
-      if (this.mParent.GetSelectedElements().Count > 1)
+            int num = this.mParent.GetElements().Count - 1;
+            if (num > 0)
+            {
+                if (this.Z < num)
+                {
+                    OrderMenu.DropDownItems.Add(new ToolStripMenuItem("Move Front", null, new EventHandler(this.DoMoveFrontMenu)));
+                    OrderMenu.DropDownItems.Add(new ToolStripMenuItem("Move First", null, new EventHandler(this.DoMoveFirstMenu)));
+                }
+                if (this.Z >= 1)
+                {
+                    OrderMenu.DropDownItems.Add(new ToolStripMenuItem("Move Back", null, new EventHandler(this.DoMoveBackMenu)));
+                    OrderMenu.DropDownItems.Add(new ToolStripMenuItem("Move Last", null, new EventHandler(this.DoMoveLastMenu)));
+                }
+            }
+            if (this.mParent.GetSelectedElements().Count > 1)
       {
-        PositionMenu.MenuItems.Add(new MenuItem("Align Lefts", new EventHandler(this.DoAlignLeftsMenu)));
-        PositionMenu.MenuItems.Add(new MenuItem("Align Rights", new EventHandler(this.DoAlignRightsMenu)));
-        PositionMenu.MenuItems.Add(new MenuItem("Align Tops", new EventHandler(this.DoAlignTopsMenu)));
-        PositionMenu.MenuItems.Add(new MenuItem("Align Bottoms", new EventHandler(this.DoAlignBottomsMenu)));
-        PositionMenu.MenuItems.Add(new MenuItem("-"));
-        PositionMenu.MenuItems.Add(new MenuItem("Center Horizontally", new EventHandler(this.DoAlignCentersMenu)));
-        PositionMenu.MenuItems.Add(new MenuItem("Center Vertically", new EventHandler(this.DoAlignMiddlesMenu)));
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Align Lefts", null, new EventHandler(this.DoAlignLeftsMenu)));
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Align Rights", null, new EventHandler(this.DoAlignRightsMenu)));
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Align Tops", null, new EventHandler(this.DoAlignTopsMenu)));
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Align Bottoms", null, new EventHandler(this.DoAlignBottomsMenu)));
+        // TODO MenuItem is no longer ToolStripMenuItem. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        PositionMenu.DropDownItems.Add(new ToolStripMenuItem("-"));
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Center Horizontally", null, new EventHandler(this.DoAlignCentersMenu)));
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Center Vertically", null, new EventHandler(this.DoAlignMiddlesMenu)));
         if (this.mParent.GetSelectedElements().Count > 2)
         {
-          PositionMenu.MenuItems.Add(new MenuItem("-"));
-          PositionMenu.MenuItems.Add(new MenuItem("Equalize Vertical Spacing", new EventHandler(this.DoVerticalSpacingMenu)));
-          PositionMenu.MenuItems.Add(new MenuItem("Equalize Horizontal Spacing", new EventHandler(this.DoHorizontalSpacingMenu)));
+          // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+          PositionMenu.DropDownItems.Add(new ToolStripMenuItem("-"));
+          // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+          PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Equalize Vertical Spacing", null, new EventHandler(this.DoVerticalSpacingMenu)));
+          // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+          PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Equalize Horizontal Spacing", null, new EventHandler(this.DoHorizontalSpacingMenu)));
         }
       }
       if (BaseElement.mExtenders == null)

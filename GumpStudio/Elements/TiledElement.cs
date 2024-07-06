@@ -82,16 +82,22 @@ namespace GumpStudio.Elements
             return $"AddImageTiled({X}, {Y}, {Width}, {Height}, {GumpID});";
         }
 
-        public override void AddContextMenus( ref MenuItem GroupMenu, ref MenuItem PositionMenu, ref MenuItem OrderMenu, ref MenuItem MiscMenu )
+        public override void AddContextMenus( ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ToolStripMenuItem GroupMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ToolStripMenuItem PositionMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ToolStripMenuItem OrderMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ToolStripMenuItem MiscMenu )
         {
             base.AddContextMenus( ref GroupMenu, ref PositionMenu, ref OrderMenu, ref MiscMenu );
 
-            if ( PositionMenu.MenuItems.Count > 1 )
+            if ( PositionMenu.DropDownItems.Count > 1 )
             {
-                PositionMenu.MenuItems.Add( new MenuItem( "-" ) );
+                // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                PositionMenu.DropDownItems.Add( new ToolStripMenuItem( "-" ) );
             }
 
-            PositionMenu.MenuItems.Add( new MenuItem( Resources.Reset_Size, DoResetSizeMenu ) );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            PositionMenu.DropDownItems.Add( new ToolStripMenuItem( Resources.Reset_Size, null, DoResetSizeMenu ) );
         }
 
         protected virtual void DoResetSizeMenu( object sender, EventArgs e )

@@ -4,151 +4,160 @@ using System.Text;
 
 namespace Ultima
 {
-	public sealed class Skills
-	{
-		private static FileIndex m_FileIndex = new FileIndex("skills.idx", "skills.mul", 16);
+    public sealed class Skills
+    {
+        private static FileIndex _fileIndex = new FileIndex("skills.idx", "skills.mul", 16);
 
-		private static List<SkillInfo> m_SkillEntries;
-		public static List<SkillInfo> SkillEntries
-		{
-			get
-			{
-				if (m_SkillEntries == null)
-				{
-					m_SkillEntries = new List<SkillInfo>();
-					for (int i = 0; i < m_FileIndex.Index.Length; ++i)
-					{
-						SkillInfo info = GetSkill(i);
-						if (info == null)
-							break;
-						m_SkillEntries.Add(info);
-					}
-				}
-				return m_SkillEntries;
-			}
-			set { m_SkillEntries = value; }
-		}
+        private static List<SkillInfo> _skillEntries;
 
-		public Skills()
-		{
+        public static List<SkillInfo> SkillEntries
+        {
+            get
+            {
+                if (_skillEntries != null)
+                {
+                    return _skillEntries;
+                }
 
-		}
+                _skillEntries = new List<SkillInfo>();
+                for (int i = 0; i < _fileIndex.Index.Length; ++i)
+                {
+                    SkillInfo info = GetSkill(i);
+                    if (info == null)
+                    {
+                        break;
+                    }
 
-		/// <summary>
-		/// ReReads skills.mul
-		/// </summary>
-		public static void Reload()
-		{
-			m_FileIndex = new FileIndex("skills.idx", "skills.mul", 16);
-			m_SkillEntries = new List<SkillInfo>();
-			for (int i = 0; i < m_FileIndex.Index.Length; ++i)
-			{
-				SkillInfo info = GetSkill(i);
-				if (info == null)
-					break;
-				m_SkillEntries.Add(info);
-			}
-		}
+                    _skillEntries.Add(info);
+                }
+                return _skillEntries;
+            }
+            set { _skillEntries = value; }
+        }
 
-		/// <summary>
-		/// Returns <see cref="SkillInfo"/> of index
-		/// </summary>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		public static SkillInfo GetSkill(int index)
-		{
-			int length, extra;
-			bool patched;
+        /// <summary>
+        /// ReReads skills.mul
+        /// </summary>
+        public static void Reload()
+        {
+            _fileIndex = new FileIndex("skills.idx", "skills.mul", 16);
+            _skillEntries = new List<SkillInfo>();
+            for (int i = 0; i < _fileIndex.Index.Length; ++i)
+            {
+                SkillInfo info = GetSkill(i);
+                if (info == null)
+                {
+                    break;
+                }
 
-			Stream stream = m_FileIndex.Seek(index, out length, out extra, out patched);
-			if (stream == null)
-				return null;
-			if (length == 0)
-				return null;
+                _skillEntries.Add(info);
+            }
+        }
 
-			using (BinaryReader bin = new BinaryReader(stream))
-			{
-				bool action = bin.ReadBoolean();
-				string name = ReadNameString(bin, length - 1);
-				return new SkillInfo(index, name, action, extra);
-			}
-		}
+        /// <summary>
+        /// Returns <see cref="SkillInfo"/> of index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public static SkillInfo GetSkill(int index)
+        {
+            Stream stream = _fileIndex.Seek(index, out int length, out int extra, out bool _);
+            if (stream == null)
+            {
+                return null;
+            }
 
-		private static byte[] m_StringBuffer = new byte[1024];
-		private static string ReadNameString(BinaryReader bin, int length)
-		{
-			bin.Read(m_StringBuffer, 0, length);
-			int count;
-			for (count = 0; count < length && m_StringBuffer[count] != 0; ++count) ;
+            if (length == 0)
+            {
+                return null;
+            }
 
-			return Encoding.Default.GetString(m_StringBuffer, 0, count);
-		}
+            using (var bin = new BinaryReader(stream))
+            {
+                bool action = bin.ReadBoolean();
+                string name = ReadNameString(bin, length - 1);
+                return new SkillInfo(index, name, action, extra);
+            }
+        }
 
-		public static void Save(string path)
-		{
-			string idx = Path.Combine(path, "skills.idx");
-			string mul = Path.Combine(path, "skills.mul");
-			using (FileStream fsidx = new FileStream(idx, FileMode.Create, FileAccess.Write, FileShare.Write),
-							  fsmul = new FileStream(mul, FileMode.Create, FileAccess.Write, FileShare.Write))
-			{
-				using (BinaryWriter binidx = new BinaryWriter(fsidx),
-									binmul = new BinaryWriter(fsmul))
-				{
-					for (int i = 0; i < m_FileIndex.Index.Length; ++i)
-					{
-						SkillInfo skill = (i < m_SkillEntries.Count) ? (SkillInfo)m_SkillEntries[i] : null;
-						if (skill == null)
-						{
-							binidx.Write((int)-1); // lookup
-							binidx.Write((int)0); // length
-							binidx.Write((int)0); // extra
-						}
-						else
-						{
-							binidx.Write((int)fsmul.Position); //lookup
-							int length = (int)fsmul.Position;
-							binmul.Write(skill.IsAction);
+        private static readonly byte[] _stringBuffer = new byte[1024];
 
-							byte[] namebytes = Encoding.Default.GetBytes(skill.Name);
-							binmul.Write(namebytes);
-							binmul.Write((byte)0); //nullterminated
+        private static string ReadNameString(BinaryReader bin, int length)
+        {
+            bin.Read(_stringBuffer, 0, length);
+            int count;
+            for (count = 0; count < length && _stringBuffer[count] != 0; ++count)
+            {
+                // TODO: this loop is weird
+                //;
+            }
 
-							length = (int)fsmul.Position - length;
-							binidx.Write(length);
-							binidx.Write(skill.Extra);
-						}
-					}
-				}
-			}
-		}
-	}
+            return Encoding.ASCII.GetString(_stringBuffer, 0, count);
+        }
 
-	public sealed class SkillInfo
-	{
-		private string m_Name;
+        public static void Save(string path)
+        {
+            string idx = Path.Combine(path, "skills.idx");
+            string mul = Path.Combine(path, "skills.mul");
 
-		public int Index { get; set; }
-		public bool IsAction { get; set; }
-		public string Name
-		{
-			get { return m_Name; }
-			set
-			{
-				if (value == null)
-					m_Name = "";
-				else
-					m_Name = value;
-			}
-		}
-		public int Extra { get; private set; }
+            using (var fsidx = new FileStream(idx, FileMode.Create, FileAccess.Write, FileShare.Write))
+            using (var fsmul = new FileStream(mul, FileMode.Create, FileAccess.Write, FileShare.Write))
+            using (var binidx = new BinaryWriter(fsidx))
+            using (var binmul = new BinaryWriter(fsmul))
+            {
+                for (int i = 0; i < _fileIndex.Index.Length; ++i)
+                {
+                    SkillInfo skill = (i < _skillEntries.Count) ? _skillEntries[i] : null;
+                    if (skill == null)
+                    {
+                        binidx.Write(-1); // lookup
+                        binidx.Write(0);  // length
+                        binidx.Write(0);  // extra
+                    }
+                    else
+                    {
+                        binidx.Write((int)fsmul.Position); // lookup
+                        var length = (int)fsmul.Position;
+                        binmul.Write(skill.IsAction);
 
+                        byte[] nameBytes = Encoding.ASCII.GetBytes(skill.Name);
+                        binmul.Write(nameBytes);
+                        binmul.Write((byte)0); // null terminated
 
-		public SkillInfo(int nr, string name, bool action, int extra)
-		{
-			Index = nr;
-			m_Name = name;
-			IsAction = action;
-			Extra = extra;
-		}
-	}
+                        length = (int)fsmul.Position - length;
+                        binidx.Write(length);
+                        binidx.Write(skill.Extra);
+                    }
+                }
+            }
+        }
+    }
+
+    public sealed class SkillInfo
+    {
+        private string _name;
+
+        public int Index { get; set; }
+
+        public bool IsAction { get; set; }
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value ?? string.Empty;
+            }
+        }
+
+        public int Extra { get; }
+
+        public SkillInfo(int nr, string name, bool action, int extra)
+        {
+            Index = nr;
+            _name = name;
+            IsAction = action;
+            Extra = extra;
+        }
+    }
 }

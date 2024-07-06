@@ -29,49 +29,92 @@ namespace GumpStudio.Forms
         private ComboBox m_cboElements;
         private PropertyGrid m_ElementProperties;
         private Label m_Label1;
-        private MainMenu m_MainMenu;
-        private MenuItem m_MenuItem1;
-        private MenuItem m_MenuItem10;
-        private MenuItem m_MenuItem3;
-        private MenuItem m_MenuItem4;
-        private MenuItem m_MenuItem5;
-        private MenuItem m_MenuItem9;
-        private ContextMenu m_mnuContextMenu;
-        private MenuItem m_mnuCopy;
-        private MenuItem _mnuCut;
-        private MenuItem _mnuDataFile;
-        private MenuItem _mnuDelete;
-        private MenuItem _mnuEdit;
-        private MenuItem _mnuEditRedo;
-        private MenuItem _mnuEditUndo;
-        private MenuItem _mnuFile;
-        private MenuItem _mnuFileExit;
-        private MenuItem _mnuFileExport;
-        private MenuItem _mnuFileImport;
-        private MenuItem _mnuFileNew;
-        private MenuItem _mnuFileOpen;
-        private MenuItem _mnuFileSave;
-        private MenuItem _mnuGumplingAddFolder;
-        private MenuItem _mnuGumplingAddGumpling;
-        private ContextMenu _mnuGumplingContext;
-        private MenuItem _mnuGumplingDelete;
-        private MenuItem _mnuGumplingMove;
-        private MenuItem _mnuGumplingRename;
-        private MenuItem _mnuHelp;
-        private MenuItem _mnuHelpAbout;
-        private MenuItem _mnuImportGumpling;
-        private MenuItem _mnuMisc;
-        private MenuItem _mnuMiscLoadGumpling;
-        private MenuItem _mnuPage;
-        private MenuItem _mnuPageAdd;
-        private MenuItem _mnuPageClear;
-        private MenuItem _mnuPageDelete;
-        private MenuItem _mnuPageInsert;
-        private MenuItem _mnuPaste;
-        private MenuItem _mnuPluginManager;
-        private MenuItem _mnuPlugins;
-        private MenuItem _mnuSelectAll;
-        private MenuItem _mnuShow0;
+        // TODO MainMenu is no longer supported. Use MenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private MenuStrip m_MainMenu;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem m_MenuItem1;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem m_MenuItem10;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem m_MenuItem3;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem m_MenuItem4;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem m_MenuItem5;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem m_MenuItem9;
+        // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ContextMenuStrip m_mnuContextMenu;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem m_mnuCopy;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuCut;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuDataFile;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuDelete;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuEdit;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuEditRedo;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuEditUndo;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuFile;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuFileExit;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuFileExport;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuFileImport;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuFileNew;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuFileOpen;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuFileSave;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuGumplingAddFolder;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuGumplingAddGumpling;
+        // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ContextMenuStrip _mnuGumplingContext;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuGumplingDelete;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuGumplingMove;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuGumplingRename;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuHelp;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuHelpAbout;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuImportGumpling;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuMisc;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuMiscLoadGumpling;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuPage;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuPageAdd;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuPageClear;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuPageDelete;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuPageInsert;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuPaste;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuPluginManager;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuPlugins;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuSelectAll;
+        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        private ToolStripMenuItem _mnuShow0;
         private OpenFileDialog _OpenDialog;
         private Panel _Panel1;
         private Panel _Panel2;
@@ -84,7 +127,8 @@ namespace GumpStudio.Forms
         private SaveFileDialog _SaveDialog;
         private Splitter _Splitter1;
         private Splitter _Splitter2;
-        private StatusBar _StatusBar;
+        // TODO StatusBar is no longer supported. Use StatusStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/windows-forms/5.0/winforms-deprecated-controls
+        private StatusStrip _StatusBar;
         private TabPage _TabPage1;
         private TabControl _TabPager;
         private TabControl _tabToolbox;
@@ -139,19 +183,22 @@ namespace GumpStudio.Forms
 
 
 
-        public virtual MenuItem mnuFileExport
+        public virtual // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ToolStripMenuItem mnuFileExport
         {
             get => _mnuFileExport;
             set => _mnuFileExport = value;
         }
 
-        public virtual MenuItem mnuFileImport
+        public virtual // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ToolStripMenuItem mnuFileImport
         {
             get => _mnuFileImport;
             set => _mnuFileImport = value;
         }
 
-        public MenuItem mnuPlugins
+        public // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ToolStripMenuItem mnuPlugins
         {
             get => _mnuPlugins;
             set => _mnuPlugins = value;
@@ -316,13 +363,15 @@ namespace GumpStudio.Forms
             _picCanvas.Invalidate();
         }
 
-        public void ClearContextMenu( Menu menu )
+        public void ClearContextMenu( // TODO Menu is no longer supported. Use ToolStripDropDown instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ToolStripDropDown menu )
         {
-            int num = menu.MenuItems.Count - 1;
+            int num = menu.Items.Count - 1;
             for ( int index = 0 ; index <= num ; ++index )
             {
-                MenuItem menuItem = menu.MenuItems[0];
-                menu.MenuItems.RemoveAt( 0 );
+                // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                ToolStripMenuItem menuItem = (ToolStripMenuItem) menu.Items[0];
+                menu.Items.RemoveAt( 0 );
             }
         }
 
@@ -743,35 +792,48 @@ namespace GumpStudio.Forms
             }
         }
 
-        protected void GetContextMenu( ref BaseElement Element, ContextMenu Menu )
+        protected void GetContextMenu( ref BaseElement Element, // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+ContextMenuStrip Menu )
         {
-            MenuItem GroupMenu = new MenuItem( "Grouping" );
-            MenuItem PositionMenu = new MenuItem( "Positioning" );
-            MenuItem OrderMenu = new MenuItem( "Order" );
-            MenuItem MiscMenu = new MenuItem( "Misc" );
-            MenuItem menuItem = new MenuItem( "Edit" );
-            menuItem.MenuItems.Add( new MenuItem( "Cut", new EventHandler( mnuCut_Click ) ) );
-            menuItem.MenuItems.Add( new MenuItem( "Copy", new EventHandler( mnuCopy_Click ) ) );
-            menuItem.MenuItems.Add( new MenuItem( "Paste", new EventHandler( mnuPaste_Click ) ) );
-            menuItem.MenuItems.Add( new MenuItem( "Delete", new EventHandler( mnuDelete_Click ) ) );
-            Menu.MenuItems.Add( menuItem );
-            Menu.MenuItems.Add( new MenuItem( "-" ) );
-            Menu.MenuItems.Add( GroupMenu );
-            Menu.MenuItems.Add( PositionMenu );
-            Menu.MenuItems.Add( OrderMenu );
-            Menu.MenuItems.Add( new MenuItem( "-" ) );
-            Menu.MenuItems.Add( MiscMenu );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            ToolStripMenuItem GroupMenu = new ToolStripMenuItem( "Grouping" );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            ToolStripMenuItem PositionMenu = new ToolStripMenuItem( "Positioning" );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            ToolStripMenuItem OrderMenu = new ToolStripMenuItem( "Order" );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            ToolStripMenuItem MiscMenu = new ToolStripMenuItem( "Misc" );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            ToolStripMenuItem menuItem = new ToolStripMenuItem( "Edit" );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            menuItem.DropDownItems.Add( new ToolStripMenuItem( "Cut", null, new EventHandler( mnuCut_Click ) ) );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            menuItem.DropDownItems.Add( new ToolStripMenuItem( "Copy", null, new EventHandler( mnuCopy_Click ) ) );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            menuItem.DropDownItems.Add( new ToolStripMenuItem( "Paste", null, new EventHandler( mnuPaste_Click ) ) );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            menuItem.DropDownItems.Add( new ToolStripMenuItem( "Delete", null, new EventHandler( mnuDelete_Click ) ) );
+            Menu.Items.Add( menuItem );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            Menu.Items.Add( new ToolStripMenuItem( "-" ) );
+            Menu.Items.Add( GroupMenu );
+            Menu.Items.Add( PositionMenu );
+            Menu.Items.Add( OrderMenu );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            Menu.Items.Add( new ToolStripMenuItem( "-" ) );
+            Menu.Items.Add( MiscMenu );
             if ( ElementStack.GetSelectedElements().Count >= 2 )
-                GroupMenu.MenuItems.Add( new MenuItem( "Create Group", new EventHandler( mnuGroupCreate_Click ) ) );
+                // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                GroupMenu.DropDownItems.Add( new ToolStripMenuItem( "Create Group", null, new EventHandler( mnuGroupCreate_Click ) ) );
 
             Element?.AddContextMenus( ref GroupMenu, ref PositionMenu, ref OrderMenu, ref MiscMenu );
-            if ( GroupMenu.MenuItems.Count == 0 )
+            if ( GroupMenu.DropDownItems.Count == 0 )
                 GroupMenu.Enabled = false;
-            if ( PositionMenu.MenuItems.Count == 0 )
+            if ( PositionMenu.DropDownItems.Count == 0 )
                 PositionMenu.Enabled = false;
-            if ( OrderMenu.MenuItems.Count == 0 )
+            if ( OrderMenu.DropDownItems.Count == 0 )
                 OrderMenu.Enabled = false;
-            if ( MiscMenu.MenuItems.Count != 0 )
+            if ( MiscMenu.DropDownItems.Count != 0 )
                 return;
             MiscMenu.Enabled = false;
         }
@@ -839,7 +901,8 @@ namespace GumpStudio.Forms
             this._tpgCustom = new System.Windows.Forms.TabPage();
             this._treGumplings = new System.Windows.Forms.TreeView();
             this.m_Label1 = new System.Windows.Forms.Label();
-            this._StatusBar = new System.Windows.Forms.StatusBar();
+            // TODO StatusBar is no longer supported. Use StatusStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/windows-forms/5.0/winforms-deprecated-controls
+            this._StatusBar = new System.Windows.Forms.StatusStrip();
             this._Splitter1 = new System.Windows.Forms.Splitter();
             this._Panel1 = new System.Windows.Forms.Panel();
             this._Panel2 = new System.Windows.Forms.Panel();
@@ -854,49 +917,92 @@ namespace GumpStudio.Forms
             this.m_CanvasFocus = new System.Windows.Forms.TextBox();
             this._OpenDialog = new System.Windows.Forms.OpenFileDialog();
             this._SaveDialog = new System.Windows.Forms.SaveFileDialog();
-            this.m_mnuContextMenu = new System.Windows.Forms.ContextMenu();
-            this.m_MainMenu = new System.Windows.Forms.MainMenu( this.components );
-            this._mnuFile = new System.Windows.Forms.MenuItem();
-            this._mnuFileNew = new System.Windows.Forms.MenuItem();
-            this.m_MenuItem9 = new System.Windows.Forms.MenuItem();
-            this._mnuFileOpen = new System.Windows.Forms.MenuItem();
-            this._mnuFileSave = new System.Windows.Forms.MenuItem();
-            this._mnuFileImport = new System.Windows.Forms.MenuItem();
-            this._mnuFileExport = new System.Windows.Forms.MenuItem();
-            this.m_MenuItem5 = new System.Windows.Forms.MenuItem();
-            this._mnuFileExit = new System.Windows.Forms.MenuItem();
-            this._mnuEdit = new System.Windows.Forms.MenuItem();
-            this._mnuEditUndo = new System.Windows.Forms.MenuItem();
-            this._mnuEditRedo = new System.Windows.Forms.MenuItem();
-            this.m_MenuItem3 = new System.Windows.Forms.MenuItem();
-            this._mnuCut = new System.Windows.Forms.MenuItem();
-            this.m_mnuCopy = new System.Windows.Forms.MenuItem();
-            this._mnuPaste = new System.Windows.Forms.MenuItem();
-            this._mnuDelete = new System.Windows.Forms.MenuItem();
-            this.m_MenuItem4 = new System.Windows.Forms.MenuItem();
-            this._mnuSelectAll = new System.Windows.Forms.MenuItem();
-            this._mnuMisc = new System.Windows.Forms.MenuItem();
-            this._mnuMiscLoadGumpling = new System.Windows.Forms.MenuItem();
-            this._mnuImportGumpling = new System.Windows.Forms.MenuItem();
-            this._mnuDataFile = new System.Windows.Forms.MenuItem();
-            this._mnuPage = new System.Windows.Forms.MenuItem();
-            this._mnuPageAdd = new System.Windows.Forms.MenuItem();
-            this._mnuPageInsert = new System.Windows.Forms.MenuItem();
-            this._mnuPageDelete = new System.Windows.Forms.MenuItem();
-            this._mnuPageClear = new System.Windows.Forms.MenuItem();
-            this.m_MenuItem10 = new System.Windows.Forms.MenuItem();
-            this._mnuShow0 = new System.Windows.Forms.MenuItem();
-            this._mnuPlugins = new System.Windows.Forms.MenuItem();
-            this._mnuPluginManager = new System.Windows.Forms.MenuItem();
-            this._mnuHelp = new System.Windows.Forms.MenuItem();
-            this._mnuHelpAbout = new System.Windows.Forms.MenuItem();
-            this._mnuGumplingContext = new System.Windows.Forms.ContextMenu();
-            this._mnuGumplingRename = new System.Windows.Forms.MenuItem();
-            this._mnuGumplingMove = new System.Windows.Forms.MenuItem();
-            this._mnuGumplingDelete = new System.Windows.Forms.MenuItem();
-            this.m_MenuItem1 = new System.Windows.Forms.MenuItem();
-            this._mnuGumplingAddGumpling = new System.Windows.Forms.MenuItem();
-            this._mnuGumplingAddFolder = new System.Windows.Forms.MenuItem();
+            // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_mnuContextMenu = new System.Windows.Forms.ContextMenuStrip();
+            // TODO MainMenu is no longer supported. Use MenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_MainMenu = new System.Windows.Forms.MenuStrip( );
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuFile = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuFileNew = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_MenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuFileSave = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_MenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuEditUndo = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuEditRedo = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_MenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuCut = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_mnuCopy = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPaste = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_MenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuSelectAll = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuMisc = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuMiscLoadGumpling = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuImportGumpling = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuDataFile = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPage = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPageAdd = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPageInsert = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPageDelete = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPageClear = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_MenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuShow0 = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPlugins = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPluginManager = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuGumplingContext = new System.Windows.Forms.ContextMenuStrip();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuGumplingRename = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuGumplingMove = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuGumplingDelete = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this.m_MenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuGumplingAddGumpling = new System.Windows.Forms.ToolStripMenuItem();
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuGumplingAddFolder = new System.Windows.Forms.ToolStripMenuItem();
             this._pnlToolboxHolder.SuspendLayout();
             this._Panel4.SuspendLayout();
             this._tabToolbox.SuspendLayout();
@@ -1133,7 +1239,8 @@ namespace GumpStudio.Forms
             // 
             // m_MainMenu
             // 
-            this.m_MainMenu.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                        this.m_MainMenu.Items.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
             this._mnuFile,
             this._mnuEdit,
             this._mnuMisc,
@@ -1143,8 +1250,9 @@ namespace GumpStudio.Forms
             // 
             // _mnuFile
             // 
-            this._mnuFile.Index = 0;
-            this._mnuFile.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+            // this._mnuFile.Index = 0;
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuFile.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
             this._mnuFileNew,
             this.m_MenuItem9,
             this._mnuFileOpen,
@@ -1157,54 +1265,55 @@ namespace GumpStudio.Forms
             // 
             // _mnuFileNew
             // 
-            this._mnuFileNew.Index = 0;
+            //this._mnuFileNew.Index = 0;
             this._mnuFileNew.Text = "New";
             this._mnuFileNew.Click += new System.EventHandler( this.mnuFileNew_Click );
             // 
             // m_MenuItem9
             // 
-            this.m_MenuItem9.Index = 1;
+            //this.m_MenuItem9.Index = 1;
             this.m_MenuItem9.Text = "-";
             // 
             // _mnuFileOpen
             // 
-            this._mnuFileOpen.Index = 2;
+            //this._mnuFileOpen.Index = 2;
             this._mnuFileOpen.Text = "Open";
             this._mnuFileOpen.Click += new System.EventHandler( this.mnuFileOpen_Click );
             // 
             // _mnuFileSave
             // 
-            this._mnuFileSave.Index = 3;
+            //this._mnuFileSave.Index = 3;
             this._mnuFileSave.Text = "Save";
             this._mnuFileSave.Click += new System.EventHandler( this.mnuFileSave_Click );
             // 
             // _mnuFileImport
             // 
             this._mnuFileImport.Enabled = false;
-            this._mnuFileImport.Index = 4;
+            //this._mnuFileImport.Index = 4;
             this._mnuFileImport.Text = "Import";
             // 
             // _mnuFileExport
             // 
             this._mnuFileExport.Enabled = false;
-            this._mnuFileExport.Index = 5;
+            //this._mnuFileExport.Index = 5;
             this._mnuFileExport.Text = "Export";
             // 
             // m_MenuItem5
             // 
-            this.m_MenuItem5.Index = 6;
+            //this.m_MenuItem5.Index = 6;
             this.m_MenuItem5.Text = "-";
             // 
             // _mnuFileExit
             // 
-            this._mnuFileExit.Index = 7;
+            //this._mnuFileExit.Index = 7;
             this._mnuFileExit.Text = "Exit";
             this._mnuFileExit.Click += new System.EventHandler( this.mnuFileExit_Click );
             // 
             // _mnuEdit
             // 
-            this._mnuEdit.Index = 1;
-            this._mnuEdit.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+            // this._mnuEdit.Index = 1;
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuEdit.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
             this._mnuEditUndo,
             this._mnuEditRedo,
             this.m_MenuItem3,
@@ -1219,67 +1328,68 @@ namespace GumpStudio.Forms
             // _mnuEditUndo
             // 
             this._mnuEditUndo.Enabled = false;
-            this._mnuEditUndo.Index = 0;
-            this._mnuEditUndo.Shortcut = System.Windows.Forms.Shortcut.CtrlZ;
+            //this._mnuEditUndo.Index = 0;
+            //this._mnuEditUndo.ShortcutKeys = System.Windows.Forms.Shortcut.CtrlZ;
             this._mnuEditUndo.Text = "Undo";
             this._mnuEditUndo.Click += new System.EventHandler( this.mnuEditUndo_Click );
             // 
             // _mnuEditRedo
             // 
             this._mnuEditRedo.Enabled = false;
-            this._mnuEditRedo.Index = 1;
-            this._mnuEditRedo.Shortcut = System.Windows.Forms.Shortcut.CtrlY;
+            //this._mnuEditRedo.Index = 1;
+            //this._mnuEditRedo.Shortcut = System.Windows.Forms.Shortcut.CtrlY;
             this._mnuEditRedo.Text = "Redo";
             this._mnuEditRedo.Click += new System.EventHandler( this.mnuEditRedo_Click );
             // 
             // m_MenuItem3
             // 
-            this.m_MenuItem3.Index = 2;
+            //this.m_MenuItem3.Index = 2;
             this.m_MenuItem3.Text = "-";
             // 
             // _mnuCut
             // 
-            this._mnuCut.Index = 3;
-            this._mnuCut.Shortcut = System.Windows.Forms.Shortcut.CtrlX;
+            //this._mnuCut.Index = 3;
+            //this._mnuCut.Shortcut = System.Windows.Forms.Shortcut.CtrlX;
             this._mnuCut.Text = "Cu&t";
             this._mnuCut.Click += new System.EventHandler( this.mnuCut_Click );
             // 
             // m_mnuCopy
             // 
-            this.m_mnuCopy.Index = 4;
-            this.m_mnuCopy.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
+            //this.m_mnuCopy.Index = 4;
+            //this.m_mnuCopy.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
             this.m_mnuCopy.Text = "&Copy";
             this.m_mnuCopy.Click += new System.EventHandler( this.mnuCopy_Click );
             // 
             // _mnuPaste
             // 
-            this._mnuPaste.Index = 5;
-            this._mnuPaste.Shortcut = System.Windows.Forms.Shortcut.CtrlV;
+            //this._mnuPaste.Index = 5;
+            //this._mnuPaste.Shortcut = System.Windows.Forms.Shortcut.CtrlV;
             this._mnuPaste.Text = "&Paste";
             this._mnuPaste.Click += new System.EventHandler( this.mnuPaste_Click );
             // 
             // _mnuDelete
             // 
-            this._mnuDelete.Index = 6;
+            //this._mnuDelete.Index = 6;
             this._mnuDelete.Text = "Delete";
             this._mnuDelete.Click += new System.EventHandler( this.mnuDelete_Click );
             // 
             // m_MenuItem4
             // 
-            this.m_MenuItem4.Index = 7;
+            //this.m_MenuItem4.Index = 7;
             this.m_MenuItem4.Text = "-";
             // 
             // _mnuSelectAll
             // 
-            this._mnuSelectAll.Index = 8;
-            this._mnuSelectAll.Shortcut = System.Windows.Forms.Shortcut.CtrlA;
+            //this._mnuSelectAll.Index = 8;
+            //this._mnuSelectAll.Shortcut = System.Windows.Forms.Shortcut.CtrlA;
             this._mnuSelectAll.Text = "Select &All";
             this._mnuSelectAll.Click += new System.EventHandler( this.mnuSelectAll_Click );
             // 
             // _mnuMisc
             // 
-            this._mnuMisc.Index = 2;
-            this._mnuMisc.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+            //this._mnuMisc.Index = 2;
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuMisc.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
             this._mnuMiscLoadGumpling,
             this._mnuImportGumpling,
             this._mnuDataFile} );
@@ -1287,26 +1397,27 @@ namespace GumpStudio.Forms
             // 
             // _mnuMiscLoadGumpling
             // 
-            this._mnuMiscLoadGumpling.Index = 0;
+            //this._mnuMiscLoadGumpling.Index = 0;
             this._mnuMiscLoadGumpling.Text = "Load gumpling";
             this._mnuMiscLoadGumpling.Click += new System.EventHandler( this.MenuItem2_Click );
             // 
             // _mnuImportGumpling
             // 
-            this._mnuImportGumpling.Index = 1;
+            //this._mnuImportGumpling.Index = 1;
             this._mnuImportGumpling.Text = "Import Gumpling";
             this._mnuImportGumpling.Click += new System.EventHandler( this.mnuImportGumpling_Click );
             // 
             // _mnuDataFile
             // 
-            this._mnuDataFile.Index = 2;
+            //this._mnuDataFile.Index = 2;
             this._mnuDataFile.Text = "Data File Path";
             this._mnuDataFile.Click += new System.EventHandler( this.mnuDataFile_Click );
             // 
             // _mnuPage
             // 
-            this._mnuPage.Index = 3;
-            this._mnuPage.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+            //this._mnuPage.Index = 3;
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPage.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
             this._mnuPageAdd,
             this._mnuPageInsert,
             this._mnuPageDelete,
@@ -1317,69 +1428,72 @@ namespace GumpStudio.Forms
             // 
             // _mnuPageAdd
             // 
-            this._mnuPageAdd.Index = 0;
+            //this._mnuPageAdd.Index = 0;
             this._mnuPageAdd.Text = "Add Page";
             this._mnuPageAdd.Click += new System.EventHandler( this.mnuAddPage_Click );
             // 
             // _mnuPageInsert
             // 
-            this._mnuPageInsert.Index = 1;
+            //this._mnuPageInsert.Index = 1;
             this._mnuPageInsert.Text = "Insert Page";
             this._mnuPageInsert.Click += new System.EventHandler( this.mnuPageInsert_Click );
             // 
             // _mnuPageDelete
             // 
-            this._mnuPageDelete.Index = 2;
+            //this._mnuPageDelete.Index = 2;
             this._mnuPageDelete.Text = "Delete Page";
             this._mnuPageDelete.Click += new System.EventHandler( this.mnuPageDelete_Click );
             // 
             // _mnuPageClear
             // 
-            this._mnuPageClear.Index = 3;
+            //this._mnuPageClear.Index = 3;
             this._mnuPageClear.Text = "Clear Page";
             this._mnuPageClear.Click += new System.EventHandler( this.mnuPageClear_Click );
             // 
             // m_MenuItem10
             // 
-            this.m_MenuItem10.Index = 4;
+            //this.m_MenuItem10.Index = 4;
             this.m_MenuItem10.Text = "-";
             // 
             // _mnuShow0
             // 
             this._mnuShow0.Checked = true;
-            this._mnuShow0.Index = 5;
+            //this._mnuShow0.Index = 5;
             this._mnuShow0.Text = "Always Show Page 0";
             this._mnuShow0.Click += new System.EventHandler( this.mnuShow0_Click );
             // 
             // _mnuPlugins
             // 
-            this._mnuPlugins.Index = 4;
-            this._mnuPlugins.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+            //this._mnuPlugins.Index = 4;
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuPlugins.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
             this._mnuPluginManager} );
             this._mnuPlugins.Text = "Plug-Ins";
             // 
             // _mnuPluginManager
             // 
-            this._mnuPluginManager.Index = 0;
+            //this._mnuPluginManager.Index = 0;
             this._mnuPluginManager.Text = "Manager";
             this._mnuPluginManager.Click += new System.EventHandler( this.mnuPluginManager_Click );
             // 
             // _mnuHelp
             // 
-            this._mnuHelp.Index = 5;
-            this._mnuHelp.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+            //this._mnuHelp.Index = 5;
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            this._mnuHelp.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
             this._mnuHelpAbout} );
             this._mnuHelp.Text = "Help";
             // 
             // _mnuHelpAbout
             // 
-            this._mnuHelpAbout.Index = 0;
+            //this._mnuHelpAbout.Index = 0;
             this._mnuHelpAbout.Text = "About...";
             this._mnuHelpAbout.Click += new System.EventHandler( this.mnuHelpAbout_Click );
             // 
             // _mnuGumplingContext
             // 
-            this._mnuGumplingContext.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                                                this._mnuGumplingContext.Items.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
             this._mnuGumplingRename,
             this._mnuGumplingMove,
             this._mnuGumplingDelete,
@@ -1389,32 +1503,32 @@ namespace GumpStudio.Forms
             // 
             // _mnuGumplingRename
             // 
-            this._mnuGumplingRename.Index = 0;
+            //this._mnuGumplingRename.Index = 0;
             this._mnuGumplingRename.Text = "Rename";
             // 
             // _mnuGumplingMove
             // 
-            this._mnuGumplingMove.Index = 1;
+            //this._mnuGumplingMove.Index = 1;
             this._mnuGumplingMove.Text = "Move";
             // 
             // _mnuGumplingDelete
             // 
-            this._mnuGumplingDelete.Index = 2;
+            //this._mnuGumplingDelete.Index = 2;
             this._mnuGumplingDelete.Text = "Delete";
             // 
             // m_MenuItem1
             // 
-            this.m_MenuItem1.Index = 3;
+            //this.m_MenuItem1.Index = 3;
             this.m_MenuItem1.Text = "-";
             // 
             // _mnuGumplingAddGumpling
             // 
-            this._mnuGumplingAddGumpling.Index = 4;
+            //this._mnuGumplingAddGumpling.Index = 4;
             this._mnuGumplingAddGumpling.Text = "Add Gumpling";
             // 
             // _mnuGumplingAddFolder
             // 
-            this._mnuGumplingAddFolder.Index = 5;
+            //this._mnuGumplingAddFolder.Index = 5;
             this._mnuGumplingAddFolder.Text = "Add Folder";
             // 
             // DesignerForm
@@ -1427,7 +1541,7 @@ namespace GumpStudio.Forms
             this.Controls.Add( this._StatusBar );
             this.Icon = ( (System.Drawing.Icon) ( resources.GetObject( "$this.Icon" ) ) );
             this.KeyPreview = true;
-            this.Menu = this.m_MainMenu;
+            this.MainMenuStrip = this.m_MainMenu;
             this.Name = "DesignerForm";
             this.Text = "Gump Studio (-Unsaved Gump-)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler( this.DesignerForm_FormClosing );
@@ -2142,7 +2256,8 @@ namespace GumpStudio.Forms
             }
             if ( ( e.Button & MouseButtons.Right ) > MouseButtons.None )
             {
-                ContextMenu mnuContextMenu = m_mnuContextMenu;
+                // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                ContextMenuStrip mnuContextMenu = m_mnuContextMenu;
                 GetContextMenu( ref ActiveElement, mnuContextMenu );
                 mnuContextMenu.Show( _picCanvas, point );
                 ClearContextMenu( mnuContextMenu );
