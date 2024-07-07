@@ -29,91 +29,91 @@ namespace GumpStudio.Forms
         private ComboBox m_cboElements;
         private PropertyGrid m_ElementProperties;
         private Label m_Label1;
-        // TODO MainMenu is no longer supported. Use MenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private MenuStrip m_MainMenu;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-        private ToolStripMenuItem m_MenuItem1;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-        private ToolStripMenuItem m_MenuItem10;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-        private ToolStripMenuItem m_MenuItem3;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-        private ToolStripMenuItem m_MenuItem4;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-        private ToolStripMenuItem m_MenuItem5;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-        private ToolStripMenuItem m_MenuItem9;
-        // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
+        private ToolStripSeparator m_MenuItem1;
+        
+        private ToolStripSeparator m_MenuItem10;
+        
+        private ToolStripSeparator m_MenuItem3;
+        
+        private ToolStripSeparator m_MenuItem4;
+        
+        private ToolStripSeparator m_MenuItem5;
+        
+        private ToolStripSeparator m_MenuItem9;
+        
         private ContextMenuStrip m_mnuContextMenu;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem m_mnuCopy;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuCut;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuDataFile;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuDelete;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuEdit;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuEditRedo;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuEditUndo;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuFile;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuFileExit;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuFileExport;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuFileImport;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuFileNew;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuFileOpen;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuFileSave;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuGumplingAddFolder;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuGumplingAddGumpling;
-        // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ContextMenuStrip _mnuGumplingContext;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuGumplingDelete;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuGumplingMove;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuGumplingRename;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuHelp;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuHelpAbout;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuImportGumpling;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuMisc;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuMiscLoadGumpling;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuPage;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuPageAdd;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuPageClear;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuPageDelete;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuPageInsert;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuPaste;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuPluginManager;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuPlugins;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuSelectAll;
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         private ToolStripMenuItem _mnuShow0;
         private OpenFileDialog _OpenDialog;
         private Panel _Panel1;
@@ -127,7 +127,7 @@ namespace GumpStudio.Forms
         private SaveFileDialog _SaveDialog;
         private Splitter _Splitter1;
         private Splitter _Splitter2;
-        // TODO StatusBar is no longer supported. Use StatusStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/windows-forms/5.0/winforms-deprecated-controls
+        
         private StatusStrip _StatusBar;
         private TabPage _TabPage1;
         private TabControl _TabPager;
@@ -171,6 +171,7 @@ namespace GumpStudio.Forms
         public ArrayList Stacks;
         public bool SuppressUndoPoints;
         public TreeFolder UncategorizedFolder;
+        private ToolStripContainer toolStripContainer1;
         protected ArrayList UndoPoints;
 
         public virtual TextBox CanvasFocus
@@ -183,21 +184,21 @@ namespace GumpStudio.Forms
 
 
 
-        public virtual // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        public virtual 
 ToolStripMenuItem mnuFileExport
         {
             get => _mnuFileExport;
             set => _mnuFileExport = value;
         }
 
-        public virtual // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        public virtual 
 ToolStripMenuItem mnuFileImport
         {
             get => _mnuFileImport;
             set => _mnuFileImport = value;
         }
 
-        public // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        public 
 ToolStripMenuItem mnuPlugins
         {
             get => _mnuPlugins;
@@ -363,13 +364,13 @@ ToolStripMenuItem mnuPlugins
             _picCanvas.Invalidate();
         }
 
-        public void ClearContextMenu( // TODO Menu is no longer supported. Use ToolStripDropDown instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        public void ClearContextMenu( 
 ToolStripDropDown menu )
         {
             int num = menu.Items.Count - 1;
             for ( int index = 0 ; index <= num ; ++index )
             {
-                // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                
                 ToolStripMenuItem menuItem = (ToolStripMenuItem) menu.Items[0];
                 menu.Items.RemoveAt( 0 );
             }
@@ -792,38 +793,38 @@ ToolStripDropDown menu )
             }
         }
 
-        protected void GetContextMenu( ref BaseElement Element, // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        protected void GetContextMenu( ref BaseElement Element, 
 ContextMenuStrip Menu )
         {
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             ToolStripMenuItem GroupMenu = new ToolStripMenuItem( "Grouping" );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             ToolStripMenuItem PositionMenu = new ToolStripMenuItem( "Positioning" );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             ToolStripMenuItem OrderMenu = new ToolStripMenuItem( "Order" );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             ToolStripMenuItem MiscMenu = new ToolStripMenuItem( "Misc" );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             ToolStripMenuItem menuItem = new ToolStripMenuItem( "Edit" );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             menuItem.DropDownItems.Add( new ToolStripMenuItem( "Cut", null, new EventHandler( mnuCut_Click ) ) );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             menuItem.DropDownItems.Add( new ToolStripMenuItem( "Copy", null, new EventHandler( mnuCopy_Click ) ) );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             menuItem.DropDownItems.Add( new ToolStripMenuItem( "Paste", null, new EventHandler( mnuPaste_Click ) ) );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             menuItem.DropDownItems.Add( new ToolStripMenuItem( "Delete", null, new EventHandler( mnuDelete_Click ) ) );
             Menu.Items.Add( menuItem );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            Menu.Items.Add( new ToolStripMenuItem( "-" ) );
+            
+            Menu.Items.Add( new ToolStripSeparator());
             Menu.Items.Add( GroupMenu );
             Menu.Items.Add( PositionMenu );
             Menu.Items.Add( OrderMenu );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            Menu.Items.Add( new ToolStripMenuItem( "-" ) );
+            
+            Menu.Items.Add( new ToolStripSeparator());
             Menu.Items.Add( MiscMenu );
             if ( ElementStack.GetSelectedElements().Count >= 2 )
-                // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                
                 GroupMenu.DropDownItems.Add( new ToolStripMenuItem( "Create Group", null, new EventHandler( mnuGroupCreate_Click ) ) );
 
             Element?.AddContextMenus( ref GroupMenu, ref PositionMenu, ref OrderMenu, ref MiscMenu );
@@ -891,677 +892,678 @@ ContextMenuStrip Menu )
 
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager( typeof( DesignerForm ) );
-            this._pnlToolboxHolder = new System.Windows.Forms.Panel();
-            this._Panel4 = new System.Windows.Forms.Panel();
-            this._tabToolbox = new System.Windows.Forms.TabControl();
-            this._tpgStandard = new System.Windows.Forms.TabPage();
-            this._pnlToolbox = new System.Windows.Forms.Panel();
-            this._tpgCustom = new System.Windows.Forms.TabPage();
-            this._treGumplings = new System.Windows.Forms.TreeView();
-            this.m_Label1 = new System.Windows.Forms.Label();
-            // TODO StatusBar is no longer supported. Use StatusStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/windows-forms/5.0/winforms-deprecated-controls
-            this._StatusBar = new System.Windows.Forms.StatusStrip();
-            this._Splitter1 = new System.Windows.Forms.Splitter();
-            this._Panel1 = new System.Windows.Forms.Panel();
-            this._Panel2 = new System.Windows.Forms.Panel();
-            this._pnlCanvasScroller = new System.Windows.Forms.Panel();
-            this._picCanvas = new System.Windows.Forms.PictureBox();
-            this._TabPager = new System.Windows.Forms.TabControl();
-            this._TabPage1 = new System.Windows.Forms.TabPage();
-            this._Splitter2 = new System.Windows.Forms.Splitter();
-            this._Panel3 = new System.Windows.Forms.Panel();
-            this.m_cboElements = new System.Windows.Forms.ComboBox();
-            this.m_ElementProperties = new System.Windows.Forms.PropertyGrid();
-            this.m_CanvasFocus = new System.Windows.Forms.TextBox();
-            this._OpenDialog = new System.Windows.Forms.OpenFileDialog();
-            this._SaveDialog = new System.Windows.Forms.SaveFileDialog();
-            // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_mnuContextMenu = new System.Windows.Forms.ContextMenuStrip();
-            // TODO MainMenu is no longer supported. Use MenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_MainMenu = new System.Windows.Forms.MenuStrip( );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuFile = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuFileNew = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_MenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuFileSave = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuFileImport = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuFileExport = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_MenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuEditUndo = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuEditRedo = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_MenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuCut = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_mnuCopy = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPaste = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuDelete = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_MenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuSelectAll = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuMisc = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuMiscLoadGumpling = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuImportGumpling = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuDataFile = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPage = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPageAdd = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPageInsert = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPageDelete = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPageClear = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_MenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuShow0 = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPlugins = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPluginManager = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuGumplingContext = new System.Windows.Forms.ContextMenuStrip();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuGumplingRename = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuGumplingMove = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuGumplingDelete = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this.m_MenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuGumplingAddGumpling = new System.Windows.Forms.ToolStripMenuItem();
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuGumplingAddFolder = new System.Windows.Forms.ToolStripMenuItem();
-            this._pnlToolboxHolder.SuspendLayout();
-            this._Panel4.SuspendLayout();
-            this._tabToolbox.SuspendLayout();
-            this._tpgStandard.SuspendLayout();
-            this._tpgCustom.SuspendLayout();
-            this._Panel1.SuspendLayout();
-            this._Panel2.SuspendLayout();
-            this._pnlCanvasScroller.SuspendLayout();
-            ( (System.ComponentModel.ISupportInitialize) ( this._picCanvas ) ).BeginInit();
-            this._TabPager.SuspendLayout();
-            this._Panel3.SuspendLayout();
-            this.SuspendLayout();
+            components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(DesignerForm));
+            _pnlToolboxHolder = new Panel();
+            _Panel4 = new Panel();
+            _tabToolbox = new TabControl();
+            _tpgStandard = new TabPage();
+            _pnlToolbox = new Panel();
+            _tpgCustom = new TabPage();
+            _treGumplings = new TreeView();
+            m_Label1 = new Label();
+            _StatusBar = new StatusStrip();
+            _Splitter1 = new Splitter();
+            _Panel1 = new Panel();
+            _Panel2 = new Panel();
+            _pnlCanvasScroller = new Panel();
+            _picCanvas = new PictureBox();
+            _TabPager = new TabControl();
+            _TabPage1 = new TabPage();
+            _Splitter2 = new Splitter();
+            _Panel3 = new Panel();
+            m_cboElements = new ComboBox();
+            m_ElementProperties = new PropertyGrid();
+            m_CanvasFocus = new TextBox();
+            _OpenDialog = new OpenFileDialog();
+            _SaveDialog = new SaveFileDialog();
+            m_mnuContextMenu = new ContextMenuStrip(components);
+            m_MainMenu = new MenuStrip();
+            _mnuFile = new ToolStripMenuItem();
+            _mnuFileNew = new ToolStripMenuItem();
+            m_MenuItem9 = new ToolStripSeparator();
+            _mnuFileOpen = new ToolStripMenuItem();
+            _mnuFileSave = new ToolStripMenuItem();
+            _mnuFileImport = new ToolStripMenuItem();
+            _mnuFileExport = new ToolStripMenuItem();
+            m_MenuItem5 = new ToolStripSeparator();
+            _mnuFileExit = new ToolStripMenuItem();
+            _mnuEdit = new ToolStripMenuItem();
+            _mnuEditUndo = new ToolStripMenuItem();
+            _mnuEditRedo = new ToolStripMenuItem();
+            m_MenuItem3 = new ToolStripSeparator();
+            _mnuCut = new ToolStripMenuItem();
+            m_mnuCopy = new ToolStripMenuItem();
+            _mnuPaste = new ToolStripMenuItem();
+            _mnuDelete = new ToolStripMenuItem();
+            m_MenuItem4 = new ToolStripSeparator();
+            _mnuSelectAll = new ToolStripMenuItem();
+            _mnuMisc = new ToolStripMenuItem();
+            _mnuMiscLoadGumpling = new ToolStripMenuItem();
+            _mnuImportGumpling = new ToolStripMenuItem();
+            _mnuDataFile = new ToolStripMenuItem();
+            _mnuPage = new ToolStripMenuItem();
+            _mnuPageAdd = new ToolStripMenuItem();
+            _mnuPageInsert = new ToolStripMenuItem();
+            _mnuPageDelete = new ToolStripMenuItem();
+            _mnuPageClear = new ToolStripMenuItem();
+            m_MenuItem10 = new ToolStripSeparator();
+            _mnuShow0 = new ToolStripMenuItem();
+            _mnuPlugins = new ToolStripMenuItem();
+            _mnuPluginManager = new ToolStripMenuItem();
+            _mnuHelp = new ToolStripMenuItem();
+            _mnuHelpAbout = new ToolStripMenuItem();
+            _mnuGumplingContext = new ContextMenuStrip(components);
+            _mnuGumplingRename = new ToolStripMenuItem();
+            _mnuGumplingMove = new ToolStripMenuItem();
+            _mnuGumplingDelete = new ToolStripMenuItem();
+            m_MenuItem1 = new ToolStripSeparator();
+            _mnuGumplingAddGumpling = new ToolStripMenuItem();
+            _mnuGumplingAddFolder = new ToolStripMenuItem();
+            toolStripContainer1 = new ToolStripContainer();
+            _pnlToolboxHolder.SuspendLayout();
+            _Panel4.SuspendLayout();
+            _tabToolbox.SuspendLayout();
+            _tpgStandard.SuspendLayout();
+            _tpgCustom.SuspendLayout();
+            _Panel1.SuspendLayout();
+            _Panel2.SuspendLayout();
+            _pnlCanvasScroller.SuspendLayout();
+            ((ISupportInitialize)_picCanvas).BeginInit();
+            _TabPager.SuspendLayout();
+            _Panel3.SuspendLayout();
+            m_MainMenu.SuspendLayout();
+            _mnuGumplingContext.SuspendLayout();
+            toolStripContainer1.BottomToolStripPanel.SuspendLayout();
+            toolStripContainer1.ContentPanel.SuspendLayout();
+            toolStripContainer1.TopToolStripPanel.SuspendLayout();
+            toolStripContainer1.SuspendLayout();
+            SuspendLayout();
             // 
             // _pnlToolboxHolder
             // 
-            this._pnlToolboxHolder.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._pnlToolboxHolder.Controls.Add( this._Panel4 );
-            this._pnlToolboxHolder.Controls.Add( this.m_Label1 );
-            this._pnlToolboxHolder.Dock = System.Windows.Forms.DockStyle.Left;
-            this._pnlToolboxHolder.Location = new System.Drawing.Point( 0, 0 );
-            this._pnlToolboxHolder.Name = "_pnlToolboxHolder";
-            this._pnlToolboxHolder.Size = new System.Drawing.Size( 128, 685 );
-            this._pnlToolboxHolder.TabIndex = 0;
+            _pnlToolboxHolder.BorderStyle = BorderStyle.Fixed3D;
+            _pnlToolboxHolder.Controls.Add(_Panel4);
+            _pnlToolboxHolder.Controls.Add(m_Label1);
+            _pnlToolboxHolder.Dock = DockStyle.Left;
+            _pnlToolboxHolder.Location = new Point(0, 0);
+            _pnlToolboxHolder.Name = "_pnlToolboxHolder";
+            _pnlToolboxHolder.Size = new Size(179, 658);
+            _pnlToolboxHolder.TabIndex = 0;
             // 
             // _Panel4
             // 
-            this._Panel4.Controls.Add( this._tabToolbox );
-            this._Panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._Panel4.Location = new System.Drawing.Point( 0, 16 );
-            this._Panel4.Name = "_Panel4";
-            this._Panel4.Size = new System.Drawing.Size( 124, 665 );
-            this._Panel4.TabIndex = 1;
+            _Panel4.Controls.Add(_tabToolbox);
+            _Panel4.Dock = DockStyle.Fill;
+            _Panel4.Location = new Point(0, 25);
+            _Panel4.Name = "_Panel4";
+            _Panel4.Size = new Size(175, 629);
+            _Panel4.TabIndex = 1;
             // 
             // _tabToolbox
             // 
-            this._tabToolbox.Controls.Add( this._tpgStandard );
-            this._tabToolbox.Controls.Add( this._tpgCustom );
-            this._tabToolbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._tabToolbox.Location = new System.Drawing.Point( 0, 0 );
-            this._tabToolbox.Multiline = true;
-            this._tabToolbox.Name = "_tabToolbox";
-            this._tabToolbox.SelectedIndex = 0;
-            this._tabToolbox.Size = new System.Drawing.Size( 124, 665 );
-            this._tabToolbox.TabIndex = 1;
+            _tabToolbox.Controls.Add(_tpgStandard);
+            _tabToolbox.Controls.Add(_tpgCustom);
+            _tabToolbox.Dock = DockStyle.Fill;
+            _tabToolbox.Location = new Point(0, 0);
+            _tabToolbox.Multiline = true;
+            _tabToolbox.Name = "_tabToolbox";
+            _tabToolbox.SelectedIndex = 0;
+            _tabToolbox.Size = new Size(175, 629);
+            _tabToolbox.TabIndex = 1;
             // 
             // _tpgStandard
             // 
-            this._tpgStandard.Controls.Add( this._pnlToolbox );
-            this._tpgStandard.Location = new System.Drawing.Point( 4, 22 );
-            this._tpgStandard.Name = "_tpgStandard";
-            this._tpgStandard.Size = new System.Drawing.Size( 116, 639 );
-            this._tpgStandard.TabIndex = 0;
-            this._tpgStandard.Text = "Standard";
+            _tpgStandard.Controls.Add(_pnlToolbox);
+            _tpgStandard.Location = new Point(4, 29);
+            _tpgStandard.Name = "_tpgStandard";
+            _tpgStandard.Size = new Size(167, 596);
+            _tpgStandard.TabIndex = 0;
+            _tpgStandard.Text = "Standard";
             // 
             // _pnlToolbox
             // 
-            this._pnlToolbox.AutoScroll = true;
-            this._pnlToolbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._pnlToolbox.Location = new System.Drawing.Point( 0, 0 );
-            this._pnlToolbox.Name = "_pnlToolbox";
-            this._pnlToolbox.Size = new System.Drawing.Size( 116, 639 );
-            this._pnlToolbox.TabIndex = 1;
+            _pnlToolbox.AutoScroll = true;
+            _pnlToolbox.Dock = DockStyle.Fill;
+            _pnlToolbox.Location = new Point(0, 0);
+            _pnlToolbox.Name = "_pnlToolbox";
+            _pnlToolbox.Size = new Size(167, 596);
+            _pnlToolbox.TabIndex = 1;
             // 
             // _tpgCustom
             // 
-            this._tpgCustom.Controls.Add( this._treGumplings );
-            this._tpgCustom.Location = new System.Drawing.Point( 4, 22 );
-            this._tpgCustom.Name = "_tpgCustom";
-            this._tpgCustom.Size = new System.Drawing.Size( 116, 639 );
-            this._tpgCustom.TabIndex = 1;
-            this._tpgCustom.Text = "Gumplings";
+            _tpgCustom.Controls.Add(_treGumplings);
+            _tpgCustom.Location = new Point(4, 29);
+            _tpgCustom.Name = "_tpgCustom";
+            _tpgCustom.Size = new Size(167, 596);
+            _tpgCustom.TabIndex = 1;
+            _tpgCustom.Text = "Gumplings";
             // 
             // _treGumplings
             // 
-            this._treGumplings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._treGumplings.Location = new System.Drawing.Point( 0, 0 );
-            this._treGumplings.Name = "_treGumplings";
-            this._treGumplings.Size = new System.Drawing.Size( 116, 639 );
-            this._treGumplings.TabIndex = 1;
-            this._treGumplings.DoubleClick += new System.EventHandler( this.treGumplings_DoubleClick );
-            this._treGumplings.MouseUp += new System.Windows.Forms.MouseEventHandler( this.treGumplings_MouseUp );
+            _treGumplings.Dock = DockStyle.Fill;
+            _treGumplings.Location = new Point(0, 0);
+            _treGumplings.Name = "_treGumplings";
+            _treGumplings.Size = new Size(167, 596);
+            _treGumplings.TabIndex = 1;
+            _treGumplings.DoubleClick += treGumplings_DoubleClick;
+            _treGumplings.MouseUp += treGumplings_MouseUp;
             // 
             // m_Label1
             // 
-            this.m_Label1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.m_Label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.m_Label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.m_Label1.Location = new System.Drawing.Point( 0, 0 );
-            this.m_Label1.Name = "m_Label1";
-            this.m_Label1.Size = new System.Drawing.Size( 124, 16 );
-            this.m_Label1.TabIndex = 0;
-            this.m_Label1.Text = "Toolbox";
-            this.m_Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            m_Label1.BackColor = SystemColors.ControlDark;
+            m_Label1.BorderStyle = BorderStyle.Fixed3D;
+            m_Label1.Dock = DockStyle.Top;
+            m_Label1.Location = new Point(0, 0);
+            m_Label1.Name = "m_Label1";
+            m_Label1.Size = new Size(175, 25);
+            m_Label1.TabIndex = 0;
+            m_Label1.Text = "Toolbox";
+            m_Label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // _StatusBar
             // 
-            this._StatusBar.Location = new System.Drawing.Point( 0, 685 );
-            this._StatusBar.Name = "_StatusBar";
-            this._StatusBar.Size = new System.Drawing.Size( 1350, 23 );
-            this._StatusBar.TabIndex = 0;
+            _StatusBar.Dock = DockStyle.None;
+            _StatusBar.ImageScalingSize = new Size(20, 20);
+            _StatusBar.Location = new Point(0, 0);
+            _StatusBar.Name = "_StatusBar";
+            _StatusBar.Size = new Size(1350, 22);
+            _StatusBar.TabIndex = 0;
             // 
             // _Splitter1
             // 
-            this._Splitter1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._Splitter1.Location = new System.Drawing.Point( 128, 0 );
-            this._Splitter1.MinSize = 80;
-            this._Splitter1.Name = "_Splitter1";
-            this._Splitter1.Size = new System.Drawing.Size( 3, 685 );
-            this._Splitter1.TabIndex = 1;
-            this._Splitter1.TabStop = false;
+            _Splitter1.BorderStyle = BorderStyle.Fixed3D;
+            _Splitter1.Location = new Point(179, 0);
+            _Splitter1.MinSize = 80;
+            _Splitter1.Name = "_Splitter1";
+            _Splitter1.Size = new Size(4, 658);
+            _Splitter1.TabIndex = 1;
+            _Splitter1.TabStop = false;
             // 
             // _Panel1
             // 
-            this._Panel1.Controls.Add( this._Panel2 );
-            this._Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._Panel1.Location = new System.Drawing.Point( 131, 0 );
-            this._Panel1.Name = "_Panel1";
-            this._Panel1.Size = new System.Drawing.Size( 1219, 685 );
-            this._Panel1.TabIndex = 2;
+            _Panel1.Controls.Add(_Panel2);
+            _Panel1.Dock = DockStyle.Fill;
+            _Panel1.Location = new Point(183, 0);
+            _Panel1.Name = "_Panel1";
+            _Panel1.Size = new Size(1167, 658);
+            _Panel1.TabIndex = 2;
             // 
             // _Panel2
             // 
-            this._Panel2.Controls.Add( this._pnlCanvasScroller );
-            this._Panel2.Controls.Add( this._TabPager );
-            this._Panel2.Controls.Add( this._Splitter2 );
-            this._Panel2.Controls.Add( this._Panel3 );
-            this._Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._Panel2.Location = new System.Drawing.Point( 0, 0 );
-            this._Panel2.Name = "_Panel2";
-            this._Panel2.Size = new System.Drawing.Size( 1219, 685 );
-            this._Panel2.TabIndex = 0;
+            _Panel2.Controls.Add(_pnlCanvasScroller);
+            _Panel2.Controls.Add(_TabPager);
+            _Panel2.Controls.Add(_Splitter2);
+            _Panel2.Controls.Add(_Panel3);
+            _Panel2.Dock = DockStyle.Fill;
+            _Panel2.Location = new Point(0, 0);
+            _Panel2.Name = "_Panel2";
+            _Panel2.Size = new Size(1167, 658);
+            _Panel2.TabIndex = 0;
             // 
             // _pnlCanvasScroller
             // 
-            this._pnlCanvasScroller.AutoScroll = true;
-            this._pnlCanvasScroller.AutoScrollMargin = new System.Drawing.Size( 1, 1 );
-            this._pnlCanvasScroller.AutoScrollMinSize = new System.Drawing.Size( 1, 1 );
-            this._pnlCanvasScroller.BackColor = System.Drawing.Color.Silver;
-            this._pnlCanvasScroller.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this._pnlCanvasScroller.Controls.Add( this._picCanvas );
-            this._pnlCanvasScroller.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._pnlCanvasScroller.Location = new System.Drawing.Point( 0, 24 );
-            this._pnlCanvasScroller.Name = "_pnlCanvasScroller";
-            this._pnlCanvasScroller.Size = new System.Drawing.Size( 949, 661 );
-            this._pnlCanvasScroller.TabIndex = 2;
-            this._pnlCanvasScroller.MouseLeave += new System.EventHandler( this.pnlCanvasScroller_MouseLeave );
+            _pnlCanvasScroller.AutoScroll = true;
+            _pnlCanvasScroller.AutoScrollMargin = new Size(1, 1);
+            _pnlCanvasScroller.AutoScrollMinSize = new Size(1, 1);
+            _pnlCanvasScroller.BackColor = Color.Silver;
+            _pnlCanvasScroller.BorderStyle = BorderStyle.Fixed3D;
+            _pnlCanvasScroller.Controls.Add(_picCanvas);
+            _pnlCanvasScroller.Dock = DockStyle.Fill;
+            _pnlCanvasScroller.Location = new Point(0, 37);
+            _pnlCanvasScroller.Name = "_pnlCanvasScroller";
+            _pnlCanvasScroller.Size = new Size(789, 621);
+            _pnlCanvasScroller.TabIndex = 2;
+            _pnlCanvasScroller.MouseLeave += pnlCanvasScroller_MouseLeave;
             // 
             // _picCanvas
             // 
-            this._picCanvas.BackColor = System.Drawing.Color.Black;
-            this._picCanvas.Location = new System.Drawing.Point( 0, 0 );
-            this._picCanvas.Name = "_picCanvas";
-            this._picCanvas.Size = new System.Drawing.Size( 1600, 1200 );
-            this._picCanvas.TabIndex = 0;
-            this._picCanvas.TabStop = false;
-            this._picCanvas.Paint += new System.Windows.Forms.PaintEventHandler( this.picCanvas_Paint );
-            this._picCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler( this.picCanvas_MouseDown );
-            this._picCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler( this.picCanvas_MouseMove );
-            this._picCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler( this.picCanvas_MouseUp );
+            _picCanvas.BackColor = Color.Black;
+            _picCanvas.Location = new Point(0, 0);
+            _picCanvas.Name = "_picCanvas";
+            _picCanvas.Size = new Size(2240, 1846);
+            _picCanvas.TabIndex = 0;
+            _picCanvas.TabStop = false;
+            _picCanvas.Paint += picCanvas_Paint;
+            _picCanvas.MouseDown += picCanvas_MouseDown;
+            _picCanvas.MouseMove += picCanvas_MouseMove;
+            _picCanvas.MouseUp += picCanvas_MouseUp;
             // 
             // _TabPager
             // 
-            this._TabPager.Controls.Add( this._TabPage1 );
-            this._TabPager.Dock = System.Windows.Forms.DockStyle.Top;
-            this._TabPager.HotTrack = true;
-            this._TabPager.Location = new System.Drawing.Point( 0, 0 );
-            this._TabPager.Name = "_TabPager";
-            this._TabPager.SelectedIndex = 0;
-            this._TabPager.Size = new System.Drawing.Size( 949, 24 );
-            this._TabPager.TabIndex = 3;
-            this._TabPager.SelectedIndexChanged += new System.EventHandler( this.TabPager_SelectedIndexChanged );
+            _TabPager.Controls.Add(_TabPage1);
+            _TabPager.Dock = DockStyle.Top;
+            _TabPager.HotTrack = true;
+            _TabPager.Location = new Point(0, 0);
+            _TabPager.Name = "_TabPager";
+            _TabPager.SelectedIndex = 0;
+            _TabPager.Size = new Size(789, 37);
+            _TabPager.TabIndex = 3;
+            _TabPager.SelectedIndexChanged += TabPager_SelectedIndexChanged;
             // 
             // _TabPage1
             // 
-            this._TabPage1.Location = new System.Drawing.Point( 4, 22 );
-            this._TabPage1.Name = "_TabPage1";
-            this._TabPage1.Size = new System.Drawing.Size( 941, 0 );
-            this._TabPage1.TabIndex = 0;
-            this._TabPage1.Text = "0";
+            _TabPage1.Location = new Point(4, 29);
+            _TabPage1.Name = "_TabPage1";
+            _TabPage1.Size = new Size(781, 4);
+            _TabPage1.TabIndex = 0;
+            _TabPage1.Text = "0";
             // 
             // _Splitter2
             // 
-            this._Splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this._Splitter2.Location = new System.Drawing.Point( 949, 0 );
-            this._Splitter2.Name = "_Splitter2";
-            this._Splitter2.Size = new System.Drawing.Size( 22, 685 );
-            this._Splitter2.TabIndex = 1;
-            this._Splitter2.TabStop = false;
+            _Splitter2.Dock = DockStyle.Right;
+            _Splitter2.Location = new Point(789, 0);
+            _Splitter2.Name = "_Splitter2";
+            _Splitter2.Size = new Size(30, 658);
+            _Splitter2.TabIndex = 1;
+            _Splitter2.TabStop = false;
             // 
             // _Panel3
             // 
-            this._Panel3.Controls.Add( this.m_cboElements );
-            this._Panel3.Controls.Add( this.m_ElementProperties );
-            this._Panel3.Controls.Add( this.m_CanvasFocus );
-            this._Panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this._Panel3.Location = new System.Drawing.Point( 971, 0 );
-            this._Panel3.Name = "_Panel3";
-            this._Panel3.Size = new System.Drawing.Size( 248, 685 );
-            this._Panel3.TabIndex = 0;
+            _Panel3.Controls.Add(m_cboElements);
+            _Panel3.Controls.Add(m_ElementProperties);
+            _Panel3.Controls.Add(m_CanvasFocus);
+            _Panel3.Dock = DockStyle.Right;
+            _Panel3.Location = new Point(819, 0);
+            _Panel3.Name = "_Panel3";
+            _Panel3.Size = new Size(348, 658);
+            _Panel3.TabIndex = 0;
             // 
             // m_cboElements
             // 
-            this.m_cboElements.Anchor = ( (System.Windows.Forms.AnchorStyles) ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left )
-            | System.Windows.Forms.AnchorStyles.Right ) ) );
-            this.m_cboElements.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.m_cboElements.Location = new System.Drawing.Point( 0, 8 );
-            this.m_cboElements.Name = "m_cboElements";
-            this.m_cboElements.Size = new System.Drawing.Size( 240, 21 );
-            this.m_cboElements.TabIndex = 1;
-            this.m_cboElements.SelectedIndexChanged += new System.EventHandler( this.cboElements_SelectedIndexChanged );
-            this.m_cboElements.Click += new System.EventHandler( this.cboElements_Click );
+            m_cboElements.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            m_cboElements.DropDownStyle = ComboBoxStyle.DropDownList;
+            m_cboElements.Location = new Point(0, 12);
+            m_cboElements.Name = "m_cboElements";
+            m_cboElements.Size = new Size(336, 28);
+            m_cboElements.TabIndex = 1;
+            m_cboElements.SelectedIndexChanged += cboElements_SelectedIndexChanged;
+            m_cboElements.Click += cboElements_Click;
             // 
             // m_ElementProperties
             // 
-            this.m_ElementProperties.Anchor = ( (System.Windows.Forms.AnchorStyles) ( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-            | System.Windows.Forms.AnchorStyles.Left )
-            | System.Windows.Forms.AnchorStyles.Right ) ) );
-            this.m_ElementProperties.Cursor = System.Windows.Forms.Cursors.HSplit;
-            this.m_ElementProperties.LineColor = System.Drawing.SystemColors.ScrollBar;
-            this.m_ElementProperties.Location = new System.Drawing.Point( 0, 32 );
-            this.m_ElementProperties.Name = "m_ElementProperties";
-            this.m_ElementProperties.Size = new System.Drawing.Size( 240, 651 );
-            this.m_ElementProperties.TabIndex = 0;
-            this.m_ElementProperties.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler( this.ElementProperties_PropertyValueChanged );
+            m_ElementProperties.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            m_ElementProperties.Cursor = Cursors.HSplit;
+            m_ElementProperties.LineColor = SystemColors.ScrollBar;
+            m_ElementProperties.Location = new Point(0, 49);
+            m_ElementProperties.Name = "m_ElementProperties";
+            m_ElementProperties.Size = new Size(336, 606);
+            m_ElementProperties.TabIndex = 0;
+            m_ElementProperties.PropertyValueChanged += ElementProperties_PropertyValueChanged;
             // 
             // m_CanvasFocus
             // 
-            this.m_CanvasFocus.Anchor = ( (System.Windows.Forms.AnchorStyles) ( ( System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right ) ) );
-            this.m_CanvasFocus.Location = new System.Drawing.Point( 16, 635 );
-            this.m_CanvasFocus.Name = "m_CanvasFocus";
-            this.m_CanvasFocus.Size = new System.Drawing.Size( 100, 20 );
-            this.m_CanvasFocus.TabIndex = 1;
-            this.m_CanvasFocus.Text = "TextBox1";
+            m_CanvasFocus.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            m_CanvasFocus.Location = new Point(22, 581);
+            m_CanvasFocus.Name = "m_CanvasFocus";
+            m_CanvasFocus.Size = new Size(140, 27);
+            m_CanvasFocus.TabIndex = 1;
+            m_CanvasFocus.Text = "TextBox1";
+            // 
+            // m_mnuContextMenu
+            // 
+            m_mnuContextMenu.ImageScalingSize = new Size(20, 20);
+            m_mnuContextMenu.Name = "m_mnuContextMenu";
+            m_mnuContextMenu.Size = new Size(61, 4);
             // 
             // m_MainMenu
             // 
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-                        this.m_MainMenu.Items.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
-            this._mnuFile,
-            this._mnuEdit,
-            this._mnuMisc,
-            this._mnuPage,
-            this._mnuPlugins,
-            this._mnuHelp} );
+            m_MainMenu.Dock = DockStyle.None;
+            m_MainMenu.ImageScalingSize = new Size(20, 20);
+            m_MainMenu.Items.AddRange(new ToolStripItem[] { _mnuFile, _mnuEdit, _mnuMisc, _mnuPage, _mnuPlugins, _mnuHelp });
+            m_MainMenu.Location = new Point(0, 0);
+            m_MainMenu.Name = "m_MainMenu";
+            m_MainMenu.Size = new Size(1350, 28);
+            m_MainMenu.TabIndex = 0;
             // 
             // _mnuFile
             // 
-            // this._mnuFile.Index = 0;
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuFile.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
-            this._mnuFileNew,
-            this.m_MenuItem9,
-            this._mnuFileOpen,
-            this._mnuFileSave,
-            this._mnuFileImport,
-            this._mnuFileExport,
-            this.m_MenuItem5,
-            this._mnuFileExit} );
-            this._mnuFile.Text = "File";
+            _mnuFile.DropDownItems.AddRange(new ToolStripItem[] { _mnuFileNew, m_MenuItem9, _mnuFileOpen, _mnuFileSave, _mnuFileImport, _mnuFileExport, m_MenuItem5, _mnuFileExit });
+            _mnuFile.Name = "_mnuFile";
+            _mnuFile.Size = new Size(46, 24);
+            _mnuFile.Text = "File";
             // 
             // _mnuFileNew
             // 
-            //this._mnuFileNew.Index = 0;
-            this._mnuFileNew.Text = "New";
-            this._mnuFileNew.Click += new System.EventHandler( this.mnuFileNew_Click );
+            _mnuFileNew.Name = "_mnuFileNew";
+            _mnuFileNew.Size = new Size(137, 26);
+            _mnuFileNew.Text = "New";
+            _mnuFileNew.Click += mnuFileNew_Click;
             // 
             // m_MenuItem9
             // 
-            //this.m_MenuItem9.Index = 1;
-            this.m_MenuItem9.Text = "-";
+            m_MenuItem9.Name = "m_MenuItem9";
+            m_MenuItem9.Size = new Size(137, 26);
+            m_MenuItem9.Text = "-";
             // 
             // _mnuFileOpen
             // 
-            //this._mnuFileOpen.Index = 2;
-            this._mnuFileOpen.Text = "Open";
-            this._mnuFileOpen.Click += new System.EventHandler( this.mnuFileOpen_Click );
+            _mnuFileOpen.Name = "_mnuFileOpen";
+            _mnuFileOpen.Size = new Size(137, 26);
+            _mnuFileOpen.Text = "Open";
+            _mnuFileOpen.Click += mnuFileOpen_Click;
             // 
             // _mnuFileSave
             // 
-            //this._mnuFileSave.Index = 3;
-            this._mnuFileSave.Text = "Save";
-            this._mnuFileSave.Click += new System.EventHandler( this.mnuFileSave_Click );
+            _mnuFileSave.Name = "_mnuFileSave";
+            _mnuFileSave.Size = new Size(137, 26);
+            _mnuFileSave.Text = "Save";
+            _mnuFileSave.Click += mnuFileSave_Click;
             // 
             // _mnuFileImport
             // 
-            this._mnuFileImport.Enabled = false;
-            //this._mnuFileImport.Index = 4;
-            this._mnuFileImport.Text = "Import";
+            _mnuFileImport.Enabled = false;
+            _mnuFileImport.Name = "_mnuFileImport";
+            _mnuFileImport.Size = new Size(137, 26);
+            _mnuFileImport.Text = "Import";
             // 
             // _mnuFileExport
             // 
-            this._mnuFileExport.Enabled = false;
-            //this._mnuFileExport.Index = 5;
-            this._mnuFileExport.Text = "Export";
+            _mnuFileExport.Enabled = false;
+            _mnuFileExport.Name = "_mnuFileExport";
+            _mnuFileExport.Size = new Size(137, 26);
+            _mnuFileExport.Text = "Export";
             // 
             // m_MenuItem5
             // 
-            //this.m_MenuItem5.Index = 6;
-            this.m_MenuItem5.Text = "-";
+            m_MenuItem5.Name = "m_MenuItem5";
+            m_MenuItem5.Size = new Size(137, 26);
+            m_MenuItem5.Text = "-";
             // 
             // _mnuFileExit
             // 
-            //this._mnuFileExit.Index = 7;
-            this._mnuFileExit.Text = "Exit";
-            this._mnuFileExit.Click += new System.EventHandler( this.mnuFileExit_Click );
+            _mnuFileExit.Name = "_mnuFileExit";
+            _mnuFileExit.Size = new Size(137, 26);
+            _mnuFileExit.Text = "Exit";
+            _mnuFileExit.Click += mnuFileExit_Click;
             // 
             // _mnuEdit
             // 
-            // this._mnuEdit.Index = 1;
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuEdit.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
-            this._mnuEditUndo,
-            this._mnuEditRedo,
-            this.m_MenuItem3,
-            this._mnuCut,
-            this.m_mnuCopy,
-            this._mnuPaste,
-            this._mnuDelete,
-            this.m_MenuItem4,
-            this._mnuSelectAll} );
-            this._mnuEdit.Text = "Edit";
+            _mnuEdit.DropDownItems.AddRange(new ToolStripItem[] { _mnuEditUndo, _mnuEditRedo, m_MenuItem3, _mnuCut, m_mnuCopy, _mnuPaste, _mnuDelete, m_MenuItem4, _mnuSelectAll });
+            _mnuEdit.Name = "_mnuEdit";
+            _mnuEdit.Size = new Size(49, 24);
+            _mnuEdit.Text = "Edit";
             // 
             // _mnuEditUndo
             // 
-            this._mnuEditUndo.Enabled = false;
-            //this._mnuEditUndo.Index = 0;
-            //this._mnuEditUndo.ShortcutKeys = System.Windows.Forms.Shortcut.CtrlZ;
-            this._mnuEditUndo.Text = "Undo";
-            this._mnuEditUndo.Click += new System.EventHandler( this.mnuEditUndo_Click );
+            _mnuEditUndo.Enabled = false;
+            _mnuEditUndo.Name = "_mnuEditUndo";
+            _mnuEditUndo.Size = new Size(154, 26);
+            _mnuEditUndo.Text = "Undo";
+            _mnuEditUndo.ShortcutKeys = Keys.Control | Keys.Z;
+            _mnuEditUndo.Click += mnuEditUndo_Click;
             // 
             // _mnuEditRedo
             // 
-            this._mnuEditRedo.Enabled = false;
-            //this._mnuEditRedo.Index = 1;
-            //this._mnuEditRedo.Shortcut = System.Windows.Forms.Shortcut.CtrlY;
-            this._mnuEditRedo.Text = "Redo";
-            this._mnuEditRedo.Click += new System.EventHandler( this.mnuEditRedo_Click );
+            _mnuEditRedo.Enabled = false;
+            _mnuEditRedo.Name = "_mnuEditRedo";
+            _mnuEditRedo.Size = new Size(154, 26);
+            _mnuEditRedo.Text = "Redo";
+            _mnuEditRedo.Click += mnuEditRedo_Click;
+            _mnuEditRedo.ShortcutKeys = Keys.Control | Keys.Y;
             // 
             // m_MenuItem3
             // 
-            //this.m_MenuItem3.Index = 2;
-            this.m_MenuItem3.Text = "-";
+            m_MenuItem3.Name = "m_MenuItem3";
+            m_MenuItem3.Size = new Size(154, 26);
+            m_MenuItem3.Text = "-";
             // 
             // _mnuCut
             // 
-            //this._mnuCut.Index = 3;
-            //this._mnuCut.Shortcut = System.Windows.Forms.Shortcut.CtrlX;
-            this._mnuCut.Text = "Cu&t";
-            this._mnuCut.Click += new System.EventHandler( this.mnuCut_Click );
+            _mnuCut.Name = "_mnuCut";
+            _mnuCut.Size = new Size(154, 26);
+            _mnuCut.Text = "Cu&t";
+            _mnuCut.Click += mnuCut_Click;
+            _mnuCut.ShortcutKeys = Keys.Control | Keys.X;
             // 
             // m_mnuCopy
             // 
-            //this.m_mnuCopy.Index = 4;
-            //this.m_mnuCopy.Shortcut = System.Windows.Forms.Shortcut.CtrlC;
-            this.m_mnuCopy.Text = "&Copy";
-            this.m_mnuCopy.Click += new System.EventHandler( this.mnuCopy_Click );
+            m_mnuCopy.Name = "m_mnuCopy";
+            m_mnuCopy.Size = new Size(154, 26);
+            m_mnuCopy.Text = "&Copy";
+            m_mnuCopy.Click += mnuCopy_Click;
+            m_mnuCopy.ShortcutKeys = Keys.Control | Keys.C;
             // 
             // _mnuPaste
             // 
-            //this._mnuPaste.Index = 5;
-            //this._mnuPaste.Shortcut = System.Windows.Forms.Shortcut.CtrlV;
-            this._mnuPaste.Text = "&Paste";
-            this._mnuPaste.Click += new System.EventHandler( this.mnuPaste_Click );
+            _mnuPaste.Name = "_mnuPaste";
+            _mnuPaste.Size = new Size(154, 26);
+            _mnuPaste.Text = "&Paste";
+            _mnuPaste.Click += mnuPaste_Click;
+            _mnuPaste.ShortcutKeys = Keys.Control | Keys.V;
             // 
             // _mnuDelete
             // 
-            //this._mnuDelete.Index = 6;
-            this._mnuDelete.Text = "Delete";
-            this._mnuDelete.Click += new System.EventHandler( this.mnuDelete_Click );
+            _mnuDelete.Name = "_mnuDelete";
+            _mnuDelete.Size = new Size(154, 26);
+            _mnuDelete.Text = "Delete";
+            _mnuDelete.Click += mnuDelete_Click;
             // 
             // m_MenuItem4
             // 
-            //this.m_MenuItem4.Index = 7;
-            this.m_MenuItem4.Text = "-";
+            m_MenuItem4.Name = "m_MenuItem4";
+            m_MenuItem4.Size = new Size(154, 26);
+            m_MenuItem4.Text = "-";
             // 
             // _mnuSelectAll
             // 
-            //this._mnuSelectAll.Index = 8;
-            //this._mnuSelectAll.Shortcut = System.Windows.Forms.Shortcut.CtrlA;
-            this._mnuSelectAll.Text = "Select &All";
-            this._mnuSelectAll.Click += new System.EventHandler( this.mnuSelectAll_Click );
+            _mnuSelectAll.Name = "_mnuSelectAll";
+            _mnuSelectAll.Size = new Size(154, 26);
+            _mnuSelectAll.Text = "Select &All";
+            _mnuSelectAll.Click += mnuSelectAll_Click;
+            _mnuSelectAll.ShortcutKeys = Keys.Control | Keys.A;
             // 
             // _mnuMisc
             // 
-            //this._mnuMisc.Index = 2;
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuMisc.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
-            this._mnuMiscLoadGumpling,
-            this._mnuImportGumpling,
-            this._mnuDataFile} );
-            this._mnuMisc.Text = "Misc";
+            _mnuMisc.DropDownItems.AddRange(new ToolStripItem[] { _mnuMiscLoadGumpling, _mnuImportGumpling, _mnuDataFile });
+            _mnuMisc.Name = "_mnuMisc";
+            _mnuMisc.Size = new Size(53, 24);
+            _mnuMisc.Text = "Misc";
             // 
             // _mnuMiscLoadGumpling
             // 
-            //this._mnuMiscLoadGumpling.Index = 0;
-            this._mnuMiscLoadGumpling.Text = "Load gumpling";
-            this._mnuMiscLoadGumpling.Click += new System.EventHandler( this.MenuItem2_Click );
+            _mnuMiscLoadGumpling.Name = "_mnuMiscLoadGumpling";
+            _mnuMiscLoadGumpling.Size = new Size(206, 26);
+            _mnuMiscLoadGumpling.Text = "Load gumpling";
+            _mnuMiscLoadGumpling.Click += MenuItem2_Click;
             // 
             // _mnuImportGumpling
             // 
-            //this._mnuImportGumpling.Index = 1;
-            this._mnuImportGumpling.Text = "Import Gumpling";
-            this._mnuImportGumpling.Click += new System.EventHandler( this.mnuImportGumpling_Click );
+            _mnuImportGumpling.Name = "_mnuImportGumpling";
+            _mnuImportGumpling.Size = new Size(206, 26);
+            _mnuImportGumpling.Text = "Import Gumpling";
+            _mnuImportGumpling.Click += mnuImportGumpling_Click;
             // 
             // _mnuDataFile
             // 
-            //this._mnuDataFile.Index = 2;
-            this._mnuDataFile.Text = "Data File Path";
-            this._mnuDataFile.Click += new System.EventHandler( this.mnuDataFile_Click );
+            _mnuDataFile.Name = "_mnuDataFile";
+            _mnuDataFile.Size = new Size(206, 26);
+            _mnuDataFile.Text = "Data File Path";
+            _mnuDataFile.Click += mnuDataFile_Click;
             // 
             // _mnuPage
             // 
-            //this._mnuPage.Index = 3;
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPage.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
-            this._mnuPageAdd,
-            this._mnuPageInsert,
-            this._mnuPageDelete,
-            this._mnuPageClear,
-            this.m_MenuItem10,
-            this._mnuShow0} );
-            this._mnuPage.Text = "Page";
+            _mnuPage.DropDownItems.AddRange(new ToolStripItem[] { _mnuPageAdd, _mnuPageInsert, _mnuPageDelete, _mnuPageClear, m_MenuItem10, _mnuShow0 });
+            _mnuPage.Name = "_mnuPage";
+            _mnuPage.Size = new Size(55, 24);
+            _mnuPage.Text = "Page";
             // 
             // _mnuPageAdd
             // 
-            //this._mnuPageAdd.Index = 0;
-            this._mnuPageAdd.Text = "Add Page";
-            this._mnuPageAdd.Click += new System.EventHandler( this.mnuAddPage_Click );
+            _mnuPageAdd.Name = "_mnuPageAdd";
+            _mnuPageAdd.Size = new Size(226, 26);
+            _mnuPageAdd.Text = "Add Page";
+            _mnuPageAdd.Click += mnuAddPage_Click;
             // 
             // _mnuPageInsert
             // 
-            //this._mnuPageInsert.Index = 1;
-            this._mnuPageInsert.Text = "Insert Page";
-            this._mnuPageInsert.Click += new System.EventHandler( this.mnuPageInsert_Click );
+            _mnuPageInsert.Name = "_mnuPageInsert";
+            _mnuPageInsert.Size = new Size(226, 26);
+            _mnuPageInsert.Text = "Insert Page";
+            _mnuPageInsert.Click += mnuPageInsert_Click;
             // 
             // _mnuPageDelete
             // 
-            //this._mnuPageDelete.Index = 2;
-            this._mnuPageDelete.Text = "Delete Page";
-            this._mnuPageDelete.Click += new System.EventHandler( this.mnuPageDelete_Click );
+            _mnuPageDelete.Name = "_mnuPageDelete";
+            _mnuPageDelete.Size = new Size(226, 26);
+            _mnuPageDelete.Text = "Delete Page";
+            _mnuPageDelete.Click += mnuPageDelete_Click;
             // 
             // _mnuPageClear
             // 
-            //this._mnuPageClear.Index = 3;
-            this._mnuPageClear.Text = "Clear Page";
-            this._mnuPageClear.Click += new System.EventHandler( this.mnuPageClear_Click );
+            _mnuPageClear.Name = "_mnuPageClear";
+            _mnuPageClear.Size = new Size(226, 26);
+            _mnuPageClear.Text = "Clear Page";
+            _mnuPageClear.Click += mnuPageClear_Click;
             // 
             // m_MenuItem10
             // 
-            //this.m_MenuItem10.Index = 4;
-            this.m_MenuItem10.Text = "-";
+            m_MenuItem10.Name = "m_MenuItem10";
+            m_MenuItem10.Size = new Size(226, 26);
+            m_MenuItem10.Text = "-";
             // 
             // _mnuShow0
             // 
-            this._mnuShow0.Checked = true;
-            //this._mnuShow0.Index = 5;
-            this._mnuShow0.Text = "Always Show Page 0";
-            this._mnuShow0.Click += new System.EventHandler( this.mnuShow0_Click );
+            _mnuShow0.Checked = true;
+            _mnuShow0.CheckState = CheckState.Checked;
+            _mnuShow0.Name = "_mnuShow0";
+            _mnuShow0.Size = new Size(226, 26);
+            _mnuShow0.Text = "Always Show Page 0";
+            _mnuShow0.Click += mnuShow0_Click;
             // 
             // _mnuPlugins
             // 
-            //this._mnuPlugins.Index = 4;
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuPlugins.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
-            this._mnuPluginManager} );
-            this._mnuPlugins.Text = "Plug-Ins";
+            _mnuPlugins.DropDownItems.AddRange(new ToolStripItem[] { _mnuPluginManager });
+            _mnuPlugins.Name = "_mnuPlugins";
+            _mnuPlugins.Size = new Size(76, 24);
+            _mnuPlugins.Text = "Plug-Ins";
             // 
             // _mnuPluginManager
             // 
-            //this._mnuPluginManager.Index = 0;
-            this._mnuPluginManager.Text = "Manager";
-            this._mnuPluginManager.Click += new System.EventHandler( this.mnuPluginManager_Click );
+            _mnuPluginManager.Name = "_mnuPluginManager";
+            _mnuPluginManager.Size = new Size(151, 26);
+            _mnuPluginManager.Text = "Manager";
+            _mnuPluginManager.Click += mnuPluginManager_Click;
             // 
             // _mnuHelp
             // 
-            //this._mnuHelp.Index = 5;
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-            this._mnuHelp.DropDownItems.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
-            this._mnuHelpAbout} );
-            this._mnuHelp.Text = "Help";
+            _mnuHelp.DropDownItems.AddRange(new ToolStripItem[] { _mnuHelpAbout });
+            _mnuHelp.Name = "_mnuHelp";
+            _mnuHelp.Size = new Size(55, 24);
+            _mnuHelp.Text = "Help";
             // 
             // _mnuHelpAbout
             // 
-            //this._mnuHelpAbout.Index = 0;
-            this._mnuHelpAbout.Text = "About...";
-            this._mnuHelpAbout.Click += new System.EventHandler( this.mnuHelpAbout_Click );
+            _mnuHelpAbout.Name = "_mnuHelpAbout";
+            _mnuHelpAbout.Size = new Size(142, 26);
+            _mnuHelpAbout.Text = "About...";
+            _mnuHelpAbout.Click += mnuHelpAbout_Click;
             // 
             // _mnuGumplingContext
             // 
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-                                                this._mnuGumplingContext.Items.AddRange( new System.Windows.Forms.ToolStripMenuItem[] {
-            this._mnuGumplingRename,
-            this._mnuGumplingMove,
-            this._mnuGumplingDelete,
-            this.m_MenuItem1,
-            this._mnuGumplingAddGumpling,
-            this._mnuGumplingAddFolder} );
+            _mnuGumplingContext.ImageScalingSize = new Size(20, 20);
+            _mnuGumplingContext.Items.AddRange(new ToolStripItem[] { _mnuGumplingRename, _mnuGumplingMove, _mnuGumplingDelete, m_MenuItem1, _mnuGumplingAddGumpling, _mnuGumplingAddFolder });
+            _mnuGumplingContext.Name = "_mnuGumplingContext";
+            _mnuGumplingContext.Size = new Size(176, 148);
             // 
             // _mnuGumplingRename
             // 
-            //this._mnuGumplingRename.Index = 0;
-            this._mnuGumplingRename.Text = "Rename";
+            _mnuGumplingRename.Name = "_mnuGumplingRename";
+            _mnuGumplingRename.Size = new Size(175, 24);
+            _mnuGumplingRename.Text = "Rename";
             // 
             // _mnuGumplingMove
             // 
-            //this._mnuGumplingMove.Index = 1;
-            this._mnuGumplingMove.Text = "Move";
+            _mnuGumplingMove.Name = "_mnuGumplingMove";
+            _mnuGumplingMove.Size = new Size(175, 24);
+            _mnuGumplingMove.Text = "Move";
             // 
             // _mnuGumplingDelete
             // 
-            //this._mnuGumplingDelete.Index = 2;
-            this._mnuGumplingDelete.Text = "Delete";
+            _mnuGumplingDelete.Name = "_mnuGumplingDelete";
+            _mnuGumplingDelete.Size = new Size(175, 24);
+            _mnuGumplingDelete.Text = "Delete";
             // 
             // m_MenuItem1
             // 
-            //this.m_MenuItem1.Index = 3;
-            this.m_MenuItem1.Text = "-";
+            m_MenuItem1.Name = "m_MenuItem1";
+            m_MenuItem1.Size = new Size(175, 24);
+            m_MenuItem1.Text = "-";
             // 
             // _mnuGumplingAddGumpling
             // 
-            //this._mnuGumplingAddGumpling.Index = 4;
-            this._mnuGumplingAddGumpling.Text = "Add Gumpling";
+            _mnuGumplingAddGumpling.Name = "_mnuGumplingAddGumpling";
+            _mnuGumplingAddGumpling.Size = new Size(175, 24);
+            _mnuGumplingAddGumpling.Text = "Add Gumpling";
             // 
             // _mnuGumplingAddFolder
             // 
-            //this._mnuGumplingAddFolder.Index = 5;
-            this._mnuGumplingAddFolder.Text = "Add Folder";
+            _mnuGumplingAddFolder.Name = "_mnuGumplingAddFolder";
+            _mnuGumplingAddFolder.Size = new Size(175, 24);
+            _mnuGumplingAddFolder.Text = "Add Folder";
+            // 
+            // toolStripContainer1
+            // 
+            // 
+            // toolStripContainer1.BottomToolStripPanel
+            // 
+            toolStripContainer1.BottomToolStripPanel.Controls.Add(_StatusBar);
+            // 
+            // toolStripContainer1.ContentPanel
+            // 
+            toolStripContainer1.ContentPanel.AutoScroll = true;
+            toolStripContainer1.ContentPanel.Controls.Add(_Panel1);
+            toolStripContainer1.ContentPanel.Controls.Add(_Splitter1);
+            toolStripContainer1.ContentPanel.Controls.Add(_pnlToolboxHolder);
+            toolStripContainer1.ContentPanel.Size = new Size(1350, 658);
+            toolStripContainer1.Dock = DockStyle.Fill;
+            toolStripContainer1.Location = new Point(0, 0);
+            toolStripContainer1.Name = "toolStripContainer1";
+            toolStripContainer1.Size = new Size(1350, 708);
+            toolStripContainer1.TabIndex = 3;
+            toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // toolStripContainer1.TopToolStripPanel
+            // 
+            toolStripContainer1.TopToolStripPanel.Controls.Add(m_MainMenu);
             // 
             // DesignerForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size( 5, 13 );
-            this.ClientSize = new System.Drawing.Size( 1350, 708 );
-            this.Controls.Add( this._Panel1 );
-            this.Controls.Add( this._Splitter1 );
-            this.Controls.Add( this._pnlToolboxHolder );
-            this.Controls.Add( this._StatusBar );
-            this.Icon = ( (System.Drawing.Icon) ( resources.GetObject( "$this.Icon" ) ) );
-            this.KeyPreview = true;
-            this.MainMenuStrip = this.m_MainMenu;
-            this.Name = "DesignerForm";
-            this.Text = "Gump Studio (-Unsaved Gump-)";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler( this.DesignerForm_FormClosing );
-            this.Load += new System.EventHandler( this.DesignerForm_Load );
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler( this.DesignerForm_KeyDown );
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler( this.DesignerForm_KeyUp );
-            this._pnlToolboxHolder.ResumeLayout( false );
-            this._Panel4.ResumeLayout( false );
-            this._tabToolbox.ResumeLayout( false );
-            this._tpgStandard.ResumeLayout( false );
-            this._tpgCustom.ResumeLayout( false );
-            this._Panel1.ResumeLayout( false );
-            this._Panel2.ResumeLayout( false );
-            this._pnlCanvasScroller.ResumeLayout( false );
-            ( (System.ComponentModel.ISupportInitialize) ( this._picCanvas ) ).EndInit();
-            this._TabPager.ResumeLayout( false );
-            this._Panel3.ResumeLayout( false );
-            this._Panel3.PerformLayout();
-            this.ResumeLayout( false );
-
+            AutoScaleBaseSize = new Size(7, 20);
+            ClientSize = new Size(1350, 708);
+            Controls.Add(toolStripContainer1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
+            MainMenuStrip = m_MainMenu;
+            Name = "DesignerForm";
+            Text = "Gump Studio (-Unsaved Gump-)";
+            FormClosing += DesignerForm_FormClosing;
+            Load += DesignerForm_Load;
+            KeyDown += DesignerForm_KeyDown;
+            KeyUp += DesignerForm_KeyUp;
+            _pnlToolboxHolder.ResumeLayout(false);
+            _Panel4.ResumeLayout(false);
+            _tabToolbox.ResumeLayout(false);
+            _tpgStandard.ResumeLayout(false);
+            _tpgCustom.ResumeLayout(false);
+            _Panel1.ResumeLayout(false);
+            _Panel2.ResumeLayout(false);
+            _pnlCanvasScroller.ResumeLayout(false);
+            ((ISupportInitialize)_picCanvas).EndInit();
+            _TabPager.ResumeLayout(false);
+            _Panel3.ResumeLayout(false);
+            _Panel3.PerformLayout();
+            m_MainMenu.ResumeLayout(false);
+            m_MainMenu.PerformLayout();
+            _mnuGumplingContext.ResumeLayout(false);
+            toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
+            toolStripContainer1.BottomToolStripPanel.PerformLayout();
+            toolStripContainer1.ContentPanel.ResumeLayout(false);
+            toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
+            toolStripContainer1.TopToolStripPanel.PerformLayout();
+            toolStripContainer1.ResumeLayout(false);
+            toolStripContainer1.PerformLayout();
+            ResumeLayout(false);
         }
 
         public void LoadFrom( string Path )
@@ -2256,7 +2258,7 @@ ContextMenuStrip Menu )
             }
             if ( ( e.Button & MouseButtons.Right ) > MouseButtons.None )
             {
-                // TODO ContextMenu is no longer supported. Use ContextMenuStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                
                 ContextMenuStrip mnuContextMenu = m_mnuContextMenu;
                 GetContextMenu( ref ActiveElement, mnuContextMenu );
                 mnuContextMenu.Show( _picCanvas, point );

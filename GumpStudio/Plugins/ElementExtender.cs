@@ -10,10 +10,10 @@ namespace GumpStudio.Plugins
 {
   public abstract class ElementExtender
   {
-    public virtual void AddContextMenus(ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem GroupMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem PositionMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem OrderMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+    public virtual void AddContextMenus(ref 
+ToolStripMenuItem GroupMenu, ref 
+ToolStripMenuItem PositionMenu, ref 
+ToolStripMenuItem OrderMenu, ref 
 ToolStripMenuItem MiscMenu)
     {
     }

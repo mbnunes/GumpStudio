@@ -181,27 +181,27 @@ namespace GumpStudio.Elements
             }
             if (this.mParent.GetSelectedElements().Count > 1)
       {
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Align Lefts", null, new EventHandler(this.DoAlignLeftsMenu)));
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Align Rights", null, new EventHandler(this.DoAlignRightsMenu)));
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Align Tops", null, new EventHandler(this.DoAlignTopsMenu)));
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Align Bottoms", null, new EventHandler(this.DoAlignBottomsMenu)));
-        // TODO MenuItem is no longer ToolStripMenuItem. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         PositionMenu.DropDownItems.Add(new ToolStripMenuItem("-"));
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Center Horizontally", null, new EventHandler(this.DoAlignCentersMenu)));
-        // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        
         PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Center Vertically", null, new EventHandler(this.DoAlignMiddlesMenu)));
         if (this.mParent.GetSelectedElements().Count > 2)
         {
-          // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+          
           PositionMenu.DropDownItems.Add(new ToolStripMenuItem("-"));
-          // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+          
           PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Equalize Vertical Spacing", null, new EventHandler(this.DoVerticalSpacingMenu)));
-          // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+          
           PositionMenu.DropDownItems.Add(new ToolStripMenuItem("Equalize Horizontal Spacing", null, new EventHandler(this.DoHorizontalSpacingMenu)));
         }
       }

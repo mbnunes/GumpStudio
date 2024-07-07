@@ -94,19 +94,19 @@ namespace GumpStudio.Elements
             this.Location = new Point( 0, 0 );
         }
 
-        public override void AddContextMenus( ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem GroupMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem PositionMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem OrderMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        public override void AddContextMenus( ref 
+ToolStripMenuItem GroupMenu, ref 
+ToolStripMenuItem PositionMenu, ref 
+ToolStripMenuItem OrderMenu, ref 
 ToolStripMenuItem MiscMenu )
         {
             base.AddContextMenus( ref GroupMenu, ref PositionMenu, ref OrderMenu, ref MiscMenu );
             if ( this.mParent.GetSelectedElements().Count > 1 )
-                // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                
                 GroupMenu.DropDownItems.Add( new ToolStripMenuItem( "Add Selection to Group", null, new EventHandler( this.DoAddMenu ) ) );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             GroupMenu.DropDownItems.Add( new ToolStripMenuItem( "Break Group", null, new EventHandler( this.DoBreakGroupMenu ) ) );
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             MiscMenu.DropDownItems.Add( new ToolStripMenuItem( "Export Gumpling",null,  new EventHandler( this.DoExportGumplingMenu ) ) );
         }
 

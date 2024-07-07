@@ -1,25 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
+	  <Nullable>enable</Nullable>
     <TargetFramework>net8.0-windows</TargetFramework>
     <RootNamespace>GumpStudio</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+	  <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+	  <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
+	  <ImplicitUsings>enable</ImplicitUsings>
     <FileUpgradeFlags />
     <AssemblyTitle>Gump Studio.NET</AssemblyTitle>
     <Company>Bradley Uffner</Company>
-    <Product>Gump Studio.NET</Product>
+    <Product>Gump Studio.NET 8</Product>
     <Description>Gump Studio</Description>
     <Copyright>January 2008</Copyright>
-    <AssemblyVersion>1.9.2</AssemblyVersion>
-    <FileVersion>1.9.2</FileVersion>
+    <AssemblyVersion>1.9.5</AssemblyVersion>
+    <FileVersion>1.9.5</FileVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 	<NoWarn>$(NoWarn);SYSLIB0011</NoWarn>
+	  
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
     <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.9.2</Version>
+    <Version>1.9.5</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>..\output\</OutputPath>

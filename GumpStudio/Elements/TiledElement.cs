@@ -82,21 +82,21 @@ namespace GumpStudio.Elements
             return $"AddImageTiled({X}, {Y}, {Width}, {Height}, {GumpID});";
         }
 
-        public override void AddContextMenus( ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem GroupMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem PositionMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
-ToolStripMenuItem OrderMenu, ref // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+        public override void AddContextMenus( ref 
+ToolStripMenuItem GroupMenu, ref 
+ToolStripMenuItem PositionMenu, ref 
+ToolStripMenuItem OrderMenu, ref 
 ToolStripMenuItem MiscMenu )
         {
             base.AddContextMenus( ref GroupMenu, ref PositionMenu, ref OrderMenu, ref MiscMenu );
 
             if ( PositionMenu.DropDownItems.Count > 1 )
             {
-                // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+                
                 PositionMenu.DropDownItems.Add( new ToolStripMenuItem( "-" ) );
             }
 
-            // TODO MenuItem is no longer supported. Use ToolStripMenuItem instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/winforms#removed-controls
+            
             PositionMenu.DropDownItems.Add( new ToolStripMenuItem( Resources.Reset_Size, null, DoResetSizeMenu ) );
         }
 

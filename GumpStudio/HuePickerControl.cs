@@ -17,7 +17,7 @@ namespace GumpStudio
     {
         private ComboBox _cboQuick;
         private ListBox _lstHue;
-        // TODO StatusBar is no longer supported. Use StatusStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/windows-forms/5.0/winforms-deprecated-controls
+        
         private StatusStrip _StatusBar;
         private ToolTip _ToolTip1;
         private object[] _hueNames;
@@ -133,7 +133,7 @@ namespace GumpStudio
         {
             this.components = new System.ComponentModel.Container();
             this._lstHue = new System.Windows.Forms.ListBox();
-            // TODO StatusBar is no longer supported. Use StatusStrip instead. For more details see https://docs.microsoft.com/en-us/dotnet/core/compatibility/windows-forms/5.0/winforms-deprecated-controls
+            
             this._StatusBar = new System.Windows.Forms.StatusStrip();
             this._cboQuick = new System.Windows.Forms.ComboBox();
             this._ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
