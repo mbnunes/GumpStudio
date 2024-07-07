@@ -9,7 +9,7 @@
     <ErrorReportUrlHistory />
     <FallbackCulture>pt-BR</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
-    <_LastSelectedProfileId>C:\Users\evilg\Documents\GumpStudio\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+    <_LastSelectedProfileId>C:\Users\mnune\GumpStudio\GumpStudio\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Forms\ClilocBrowserForm.cs">

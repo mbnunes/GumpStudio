@@ -364,15 +364,16 @@ ToolStripMenuItem mnuPlugins
             _picCanvas.Invalidate();
         }
 
-        public void ClearContextMenu( 
-ToolStripDropDown menu )
+        public void ClearContextMenu( ContextMenuStrip menu )
         {
             int num = menu.Items.Count - 1;
             for ( int index = 0 ; index <= num ; ++index )
             {
-                
-                ToolStripMenuItem menuItem = (ToolStripMenuItem) menu.Items[0];
-                menu.Items.RemoveAt( 0 );
+                if (menu.Items[0].GetType() != typeof(ToolStripSeparator))
+                {
+                    ToolStripMenuItem menuItem = (ToolStripMenuItem) menu.Items[0];
+                }
+                menu.Items.RemoveAt(0);
             }
         }
 
@@ -2260,9 +2261,9 @@ ContextMenuStrip Menu )
             {
                 
                 ContextMenuStrip mnuContextMenu = m_mnuContextMenu;
+                ClearContextMenu(mnuContextMenu);
                 GetContextMenu( ref ActiveElement, mnuContextMenu );
                 mnuContextMenu.Show( _picCanvas, point );
-                ClearContextMenu( mnuContextMenu );
             }
             SetActiveElement( ActiveElement, false );
             _picCanvas.Invalidate();
