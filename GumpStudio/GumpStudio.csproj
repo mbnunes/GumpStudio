@@ -5,6 +5,7 @@
     <TargetFramework>net8.0-windows</TargetFramework>
     <RootNamespace>GumpStudio</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+	  <EnableWindowsTargetting>true</EnableWindowsTargetting>
 	  <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
 	  <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
 	  <ImplicitUsings>enable</ImplicitUsings>
